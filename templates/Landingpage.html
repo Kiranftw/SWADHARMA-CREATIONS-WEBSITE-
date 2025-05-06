@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swadharma Creation | Digital Excellence</title>
+    <title>SWADHARMA CREATION | Digital Excellence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
         rel="stylesheet" />
@@ -38,36 +38,16 @@
             overflow-x: hidden;
         }
 
-        .stars {
+        .bg-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            background-color: var(--white);
-            border-radius: 50%;
-            animation: twinkle var(--duration) infinite ease-in-out;
-            opacity: 0;
-        }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1);
-            }
+            object-fit: cover;
+            opacity: 0.2;
+            transition: opacity 1s ease-in-out;
         }
 
         .container {
@@ -100,6 +80,8 @@
             font-weight: 700;
             color: var(--neon-green);
             letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -114,6 +96,8 @@
             position: relative;
             color: var(--white);
             text-decoration: none;
+            text-transform: uppercase;
+            padding: 5px 10px;
         }
 
         .nav-links a::after {
@@ -198,6 +182,252 @@
             border-color: var(--neon-green-dark);
         }
 
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--neon-green);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: transparent;
+            border-radius: 10px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            background: rgba(17, 17, 17, 0.6);
+            border-color: rgba(0, 255, 71, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 71, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--neon-green);
+            transform: translateY(-5px);
+        }
+
+        .service-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+            box-shadow: var(--box-shadow);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 0 20px rgba(0, 255, 71, 0.3);
+            transition: var(--transition);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 255, 71, 0.5);
+        }
+
+        .play-btn i {
+            color: var(--black);
+            font-size: 30px;
+            margin-left: 5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info {
+            max-width: 500px;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 71, 0.1);
+            border-radius: 50%;
+            color: var(--neon-green);
+        }
+
+        .contact-form {
+            background: rgba(17, 17, 17, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 71, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-green);
+            box-shadow: var(--glow);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--neon-green);
+            color: var(--black);
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--neon-green-dark);
+            transform: translateY(-3px);
+        }
+
         footer {
             background-color: var(--dark-gray);
             padding: 60px 0 20px;
@@ -216,6 +446,7 @@
             color: var(--neon-green);
             margin-bottom: 20px;
             text-decoration: none;
+            text-transform: uppercase;
         }
 
         .footer-about p {
@@ -250,6 +481,7 @@
             font-size: 1.1rem;
             margin-bottom: 15px;
             color: var(--white);
+            text-transform: uppercase;
         }
 
         .footer-links ul {
@@ -317,22 +549,272 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+    <style>
+        /* Additional Animations */
+        /* Hero Section Animations */
+        .hero-title {
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        .hero-subtitle {
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Service Cards Animation */
+        .service-card {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        /* Video Section Animation */
+        .video-container {
+            animation: scaleIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both;
+            transform-origin: center;
+        }
+
+        /* Contact Form Animations */
+        .contact-info {
+            animation: fadeInLeft 1s ease-out both;
+        }
+
+        .contact-form {
+            animation: fadeInRight 1s ease-out both;
+        }
+
+        /* Button Hover Animations */
+        .btn:hover,
+        .submit-btn:hover,
+        .signup-btn:hover {
+            animation: pulse 1s infinite;
+        }
+
+        /* Social Media Icons Animation */
+        .social-link:hover {
+            animation: bounce 0.5s;
+        }
+
+        /* Keyframe Definitions */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Navbar Animation */
+        .nav-links a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-green);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .nav-links a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Service Card Hover Animation */
+        .service-card:hover {
+            animation: cardHover 0.5s ease-out forwards;
+        }
+
+        @keyframes cardHover {
+            to {
+                transform: translateY(-10px) rotate(1deg);
+                box-shadow: 0 15px 30px rgba(0, 255, 71, 0.3);
+            }
+        }
+
+        /* Form Input Focus Animation */
+        .form-control:focus {
+            animation: inputFocus 0.4s ease-out forwards;
+        }
+
+        @keyframes inputFocus {
+            to {
+                box-shadow: 0 0 0 3px rgba(0, 255, 71, 0.2);
+            }
+        }
+
+        /* Section Title Animation */
+        .section-title::after {
+            animation: underlineGrow 1s ease-out 0.5s forwards;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        @keyframes underlineGrow {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Play Button Animation */
+        .play-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Scroll Reveal Animation */
+        [data-animate] {
+            opacity: 0;
+            transition: all 1s ease-out;
+        }
+
+        [data-animate="fadeIn"] {
+            transform: translateY(40px);
+        }
+
+        [data-animate="fadeInLeft"] {
+            transform: translateX(-40px);
+        }
+
+        [data-animate="fadeInRight"] {
+            transform: translateX(40px);
+        }
+
+        [data-animate].animated {
+            opacity: 1;
+            transform: translate(0);
         }
     </style>
 </head>
 
 <body>
-    <div class="stars" id="stars"></div>
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+        alt="Background" class="bg-image" id="bgImage">
 
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Swadharma</a>
+                <a href="#" class="logo">SWADHARMA</a>
                 <ul class="nav-links">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Our Service</a></li>
-                    <li><a href="#">Case Study</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#" class="active">HOME</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#">CASE STUDIES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </nav>
@@ -342,11 +824,128 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Transforming Ideas into Digital Excellence</h1>
-                <p class="hero-subtitle">Design. Develop. Deliver.</p>
+                <h1 class="hero-title">TRANSFORMING IDEAS INTO DIGITAL EXCELLENCE</h1>
+                <p class="hero-subtitle">DESIGN. DEVELOP. DELIVER.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Case Study</a>
-                    <a href="#" class="btn">Get Started</a>
+                    <a href="#" class="btn btn-primary">CASE STUDIES</a>
+                    <a href="#contact" class="btn">GET STARTED</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">OUR SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2778/2778916.png" alt="UI/UX Design">
+                    </div>
+                    <h3 class="service-title">UI/UX DESIGN</h3>
+                    <p class="service-description">User-friendly, attractive interfaces that enhance user experience and
+                        engagement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Web Development">
+                    </div>
+                    <h3 class="service-title">WEB DEVELOPMENT</h3>
+                    <p class="service-description">Fast, responsive websites built with modern technologies for optimal
+                        performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779775.png" alt="Graphic Design">
+                    </div>
+                    <h3 class="service-title">GRAPHIC DESIGN</h3>
+                    <p class="service-description">Stunning visuals that communicate your brand message effectively.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779768.png" alt="Video Editing">
+                    </div>
+                    <h3 class="service-title">VIDEO EDITING</h3>
+                    <p class="service-description">Professional editing to transform raw footage into compelling
+                        stories.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">WHY WORK WITH US</h2>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="contact-title">LET'S WORK TOGETHER</h2>
+                    <p class="contact-text">Have an idea? Need creative support for your business? Get in touch with
+                        Swadharma Creation — we'd love to collaborate with you.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@swadharmacreation.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (123) 456-7890</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>123 Creative Street, Design City</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -356,7 +955,7 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">Swadharma</a>
+                    <a href="#" class="footer-logo">SWADHARMA</a>
                     <p>We deliver exceptional digital solutions that elevate your brand and drive results.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -368,9 +967,9 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -384,39 +983,53 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Swadharma Creation. All rights reserved.</p>
+                <p>&copy; 2023 SWADHARMA CREATION. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 100;
+        // Background image changer
+        const bgImages = [
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80',
+            'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80',
+            'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2093&q=80',
+            'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80'
+        ];
 
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
+        const bgImage = document.getElementById('bgImage');
+        let currentImageIndex = 0;
 
-                const size = Math.random() * 3;
-                const duration = 5 + Math.random() * 10;
-                const delay = Math.random() * 10;
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
+        function changeBackground() {
+            currentImageIndex = (currentImageIndex + 1) % bgImages.length;
+            bgImage.style.opacity = 0;
 
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
-                star.style.setProperty('--duration', `${duration}s`);
-                star.style.animationDelay = `${delay}s`;
-
-                starsContainer.appendChild(star);
-            }
+            setTimeout(() => {
+                bgImage.src = bgImages[currentImageIndex];
+                bgImage.style.opacity = 0.2;
+            }, 1000);
         }
+        // Scroll Reveal Animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
 
-        createStars();
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
 
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Change background every 8 seconds
+        setInterval(changeBackground, 8000);
+
+        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
 
@@ -431,6 +1044,30 @@
                 hamburger.classList.remove('active');
             });
         });
+
+        // Play button functionality
+        document.querySelector('.play-btn').addEventListener('click', function () {
+            // In a real implementation, this would load the YouTube video
+            alert('Video player would open here. Connect to your YouTube video.');
+        });
+    </script>
+    <script>
+        // Scroll Reveal Animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 
