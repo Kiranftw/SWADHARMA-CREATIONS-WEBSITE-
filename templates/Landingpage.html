@@ -696,6 +696,105 @@
             font-size: 0.8rem;
         }
 
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--neon-green);
+            box-shadow: var(--box-shadow-hover);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .success-message.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+            animation: bounce 0.6s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .success-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--neon-green);
+        }
+
+        .success-text {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .success-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--neon-green);
+            color: var(--black);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .success-btn:hover {
+            background-color: var(--neon-green-dark);
+            transform: translateY(-3px);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Scroll animations */
         .animate-on-scroll {
             opacity: 0;
@@ -759,6 +858,14 @@
             .contact-form {
                 padding: 30px;
             }
+
+            .success-message {
+                padding: 30px 20px;
+            }
+
+            .success-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -768,6 +875,17 @@
     <div class="door-animation">
         <div class="door-left"></div>
         <div class="door-right"></div>
+    </div>
+
+    <!-- Success Message Modal -->
+    <div class="overlay" id="overlay"></div>
+    <div class="success-message" id="successMessage">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="success-title">Thank You!</h2>
+        <p class="success-text">We have received your message and will get back to you shortly.</p>
+        <button class="success-btn" id="closeSuccess">Close</button>
     </div>
 
     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
@@ -897,22 +1015,22 @@
                 </div>
 
                 <div class="contact-form animate-on-scroll">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Your Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">SEND MESSAGE</button>
                     </form>
@@ -992,30 +1110,25 @@
 
         // Change background every 8 seconds
         setInterval(changeBackground, 8000);
-
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
+        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
 
-        // Play button functionality
-        document.querySelector('.play-btn').addEventListener('click', function () {
-            // In a real implementation, this would load the YouTube video
-            alert('Video player would open here. Connect to your YouTube video.');
-        });
-
-        // Scroll animation
+        // Scroll animations
         const animateElements = document.querySelectorAll('.animate-on-scroll');
 
         function checkScroll() {
@@ -1035,6 +1148,37 @@
         // Check on scroll
         window.addEventListener('scroll', checkScroll);
 
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const overlay = document.getElementById('overlay');
+        const closeSuccess = document.getElementById('closeSuccess');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Simulate form submission
+            setTimeout(() => {
+                contactForm.reset();
+                successMessage.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 1000);
+        });
+
+        // Close success message
+        closeSuccess.addEventListener('click', function () {
+            successMessage.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        overlay.addEventListener('click', function () {
+            successMessage.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1046,11 +1190,49 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // Video play button
+        const playBtn = document.querySelector('.play-btn');
+        playBtn.addEventListener('click', function () {
+            alert('Video playback would start here in a real implementation.');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function () {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Add scroll class to header
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
