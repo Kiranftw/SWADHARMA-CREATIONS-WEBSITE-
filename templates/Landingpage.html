@@ -38,6 +38,71 @@
             overflow-x: hidden;
         }
 
+        /* Door Opening Animation */
+        .door-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            pointer-events: none;
+        }
+
+        .door-left,
+        .door-right {
+            width: 50%;
+            height: 100%;
+            background: var(--black);
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .door-left {
+            transform-origin: left center;
+        }
+
+        .door-right {
+            transform-origin: right center;
+        }
+
+        body.loaded .door-left {
+            transform: perspective(1200px) rotateY(-90deg);
+        }
+
+        body.loaded .door-right {
+            transform: perspective(1200px) rotateY(90deg);
+        }
+
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
         .bg-image {
             position: fixed;
             top: 0;
@@ -67,6 +132,15 @@
             background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 255, 71, 0.1);
+            transform: translateY(-100%);
+            animation: slideDown 0.8s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes slideDown {
+            to {
+                transform: translateY(0);
+            }
         }
 
         .navbar {
@@ -75,18 +149,10 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--neon-green);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
         .nav-links {
             display: flex;
             gap: 30px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -98,6 +164,32 @@
             text-decoration: none;
             text-transform: uppercase;
             padding: 5px 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .nav-links a:nth-child(1) {
+            animation-delay: 1.3s;
+        }
+
+        .nav-links a:nth-child(2) {
+            animation-delay: 1.4s;
+        }
+
+        .nav-links a:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        .nav-links a:nth-child(4) {
+            animation-delay: 1.6s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .nav-links a::after {
@@ -119,6 +211,15 @@
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: 1.7s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .hero {
@@ -132,6 +233,17 @@
 
         .hero-content {
             max-width: 600px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s ease-out forwards;
+            animation-delay: 1.4s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .hero-title {
@@ -164,17 +276,26 @@
             font-size: 0.9rem;
             transition: var(--transition);
             text-decoration: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .btn-primary {
+            background-color: var(--neon-green);
+            color: var(--black);
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 1.8s;
+        }
+
+        .btn:nth-of-type(2) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 2s;
         }
 
         .btn:hover {
             background-color: var(--neon-green);
             color: var(--black);
             transform: translateY(-3px);
-        }
-
-        .btn-primary {
-            background-color: var(--neon-green);
-            color: var(--black);
         }
 
         .btn-primary:hover {
@@ -193,6 +314,9 @@
             text-align: center;
             margin-bottom: 60px;
             color: var(--neon-green);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .services-grid {
@@ -208,11 +332,34 @@
             transition: var(--transition);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card:nth-child(1) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+
+        .service-card:nth-child(4) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.8s;
         }
 
         .service-card:hover {
             background: rgba(17, 17, 17, 0.6);
             border-color: rgba(0, 255, 71, 0.1);
+            transform: translateY(-10px);
         }
 
         .service-icon {
@@ -266,6 +413,16 @@
             padding-top: 56.25%;
             /* 16:9 Aspect Ratio */
             box-shadow: var(--box-shadow);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .video-placeholder {
@@ -332,6 +489,9 @@
 
         .contact-info {
             max-width: 500px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 0.8s ease-out forwards;
         }
 
         .contact-title {
@@ -375,10 +535,15 @@
             padding: 40px;
             border-radius: 10px;
             border: 1px solid rgba(0, 255, 71, 0.1);
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideIn 0.8s ease-out forwards;
+            animation-delay: 0.3s;
         }
 
         .form-group {
             margin-bottom: 20px;
+            position: relative;
         }
 
         .form-label {
@@ -421,6 +586,23 @@
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
         .submit-btn:hover {
@@ -431,6 +613,8 @@
         footer {
             background-color: var(--dark-gray);
             padding: 60px 0 20px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         .footer-container {
@@ -475,6 +659,7 @@
         .social-link:hover {
             background-color: var(--neon-green);
             color: var(--black);
+            transform: translateY(-3px);
         }
 
         .footer-links h3 {
@@ -500,6 +685,7 @@
 
         .footer-links a:hover {
             color: var(--neon-green);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -508,6 +694,18 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-secondary);
             font-size: 0.8rem;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
@@ -566,17 +764,26 @@
 </head>
 
 <body>
+    <!-- Door Opening Animation -->
+    <div class="door-animation">
+        <div class="door-left"></div>
+        <div class="door-right"></div>
+    </div>
+
     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
         alt="Background" class="bg-image" id="bgImage">
 
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">SWADHARMA</a>
+                <div class="logo-container">
+                    <div class="logo-img">S</div>
+                    <a href="#" class="logo-text">SWADHARMA</a>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#" class="active">HOME</a></li>
                     <li><a href="#services">SERVICES</a></li>
-                    <a href="{{ url_for('case_study') }}">Case Study</a>
+                    <li><a href="{{ url_for('case_study') }}">CASE STUDY</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                 </ul>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
@@ -599,9 +806,9 @@
 
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">OUR SERVICES</h2>
+            <h2 class="section-title animate-on-scroll">OUR SERVICES</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/2778/2778916.png" alt="UI/UX Design">
                     </div>
@@ -609,7 +816,7 @@
                     <p class="service-description">User-friendly, attractive interfaces that enhance user experience and
                         engagement.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Web Development">
                     </div>
@@ -617,14 +824,14 @@
                     <p class="service-description">Fast, responsive websites built with modern technologies for optimal
                         performance.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/2779/2779775.png" alt="Graphic Design">
                     </div>
                     <h3 class="service-title">GRAPHIC DESIGN</h3>
                     <p class="service-description">Stunning visuals that communicate your brand message effectively.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/2779/2779768.png" alt="Video Editing">
                     </div>
@@ -638,8 +845,8 @@
 
     <section class="video-section">
         <div class="container">
-            <h2 class="section-title">WHY WORK WITH US</h2>
-            <div class="video-container">
+            <h2 class="section-title animate-on-scroll">WHY WORK WITH US</h2>
+            <div class="video-container animate-on-scroll">
                 <div class="video-placeholder">
                     <div class="video-overlay"></div>
                     <div class="play-btn">
@@ -653,7 +860,7 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info animate-on-scroll">
                     <h2 class="contact-title">LET'S WORK TOGETHER</h2>
                     <p class="contact-text">Have an idea? Need creative support for your business? Get in touch with
                         Swadharma Creation — we'd love to collaborate with you.</p>
@@ -689,7 +896,7 @@
                     </div>
                 </div>
 
-                <div class="contact-form">
+                <div class="contact-form animate-on-scroll">
                     <form>
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
@@ -752,6 +959,16 @@
     </footer>
 
     <script>
+        // Door opening animation
+        window.addEventListener('load', function () {
+            document.body.classList.add('loaded');
+
+            // Remove door elements after animation completes
+            setTimeout(function () {
+                document.querySelector('.door-animation').style.display = 'none';
+            }, 1200);
+        });
+
         // Background image changer
         const bgImages = [
             'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80',
@@ -796,6 +1013,44 @@
         document.querySelector('.play-btn').addEventListener('click', function () {
             // In a real implementation, this would load the YouTube video
             alert('Video player would open here. Connect to your YouTube video.');
+        });
+
+        // Scroll animation
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        function checkScroll() {
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Initial check
+        checkScroll();
+
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
