@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Swadharma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #161DA1;
+            --yellow: #FDEB10;
+            --black: #000000;
+            --white: #FFFFFF;
+            --section-bg: #f8f9fa;
+            --border-color: #e0e0e0;
+            --dark-blue: #0d1280;
+            --light-yellow: #fff9c4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: var(--white);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            padding: 1.2rem 5%;
+        }
+        
+        .nav-logo {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .nav-logo:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--yellow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .nav-logo:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--black);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--black);
+            z-index: 101;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 0;
+            color: var(--blue);
+            position: relative;
+        }
+        
+        .hero-title span {
+            display: inline-block;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #333;
+        }
+        
+        /* Rest of About Us Page Styles */
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 0 15px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background-color: var(--yellow);
+        }
+        
+        .section-header p {
+            color: #555;
+            max-width: 700px;
+            margin: 35px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Our Story - Fixed Image Display */
+        .story-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .story-text {
+            flex: 1;
+        }
+        
+        .story-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--blue);
+        }
+        
+        .story-text p {
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .story-img {
+            flex: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4/3; /* Maintain aspect ratio */
+        }
+        
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover; /* Ensure image covers container */
+            transition: all 0.5s ease;
+        }
+        
+        .story-img:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Fixed CTA Button */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: var(--yellow);
+            color: var(--black);
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid var(--yellow);
+            letter-spacing: 1px;
+            font-size: 16px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--blue);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(253, 235, 16, 0.25);
+        }
+        
+        .btn:hover:before {
+            transform: translateX(0);
+        }
+        
+        /* Values Section */
+        .values {
+            background-color: var(--section-bg);
+        }
+        
+        .values-content {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .value-card {
+            flex: 1;
+            background-color: var(--blue);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--yellow);
+        }
+        
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            margin-bottom: 25px;
+        }
+        
+        .value-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--blue);
+        }
+        
+        .value-card p {
+            color: #ffffff;
+            font-size: 1.05rem;
+        }
+        
+        /* Team Section */
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            width: 270px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--blue);
+        }
+        
+        .member-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .team-member:hover .member-img img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 25px;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--blue);
+        }
+        
+        .member-info p {
+            color: var(--blue);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light-yellow);
+            color: var(--blue);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* Process Section */
+        .process {
+            background-color: var(--section-bg);
+        }
+        
+        .process-steps {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .process-step {
+            flex: 1;
+            text-align: center;
+            padding: 40px 25px;
+            position: relative;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--blue);
+            border: 2px solid var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--yellow);
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--blue);
+        }
+        
+        .process-step p {
+            color: #555;
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.9;
+            mix-blend-mode: multiply;
+        }
+        
+        .floating-element.circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--yellow);
+            bottom: 15%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-element.square {
+            width: 150px;
+            height: 150px;
+            background-color: var(--blue);
+            top: 20%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+            background-color: var(--blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--blue);
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        /* Updated CTA Button */
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: var(--yellow);
+            color: var(--black);
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid var(--yellow);
+            letter-spacing: 1px;
+            font-size: 16px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .cta-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--blue);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        
+        .cta-btn:hover {
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(253, 235, 16, 0.25);
+        }
+        
+        .cta-btn:hover:before {
+            transform: translateX(0);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 5rem 5% 3rem;
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo span {
+            color: var(--yellow);
+        }
+        
+        .footer-about {
+            max-width: 350px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.3rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--yellow);
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-link-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link-footer:hover {
+            transform: translateY(-4px);
+            background-color: var(--yellow);
+            color: var(--black);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .story-content {
+                flex-direction: column;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+            
+            .floating-element.circle {
+                left: 5%;
+                bottom: 10%;
+                width: 150px;
+                height: 150px;
+            }
+            
+            .floating-element.square {
+                right: 5%;
+                top: 15%;
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1.2rem 5%;
+            }
+            
+            .hero {
+                padding: 0 5%;
+                height: 60vh;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transform: translateX(100%);
+                transition: transform 0.4s ease;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .floating-element {
+                opacity: 0.1;
+            }
+            
+            .values-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                height: 50vh;
+            }
+            
+            .floating-element.circle,
+            .floating-element.square {
+                display: none;
+            }
+            
+            .team-member {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .story-img {
+                aspect-ratio: 16/9; /* Better aspect for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">Swadharma</a>
+        <div class="nav-links" id="navLinks">
+          <a href="C:\Users\chara\aifont.py\mobile version.html" class="nav-link">Brand DNA</a>
+            <a href="C:\Users\chara\aifont.py\aboutus.html" class="nav-link">About us</a>
+            <a href="C:\Users\chara\aifont.py\sevvices.html" class="nav-link">Services</a>
+            <a href="C:\Users\chara\aifont.py\work page.html" class="nav-link">Our work</a>
+            <a href="C:\Users\chara\aifont.py\contact us.html" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating elements -->
+        <div class="floating-element circle"></div>
+        <div class="floating-element square"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title"><span>About Us</span></h1>
+            <p class="hero-subtitle">Discover the story behind Swadharma Creations</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <p>Founded on the principles of authentic expression and creative excellence</p>
+            </div>
+            <div class="story-content">
+                <div class="story-text">
+                    <h3>From Vision to Impact</h3>
+                    <p>Swadharma was born from a simple idea: that every brand has a unique story worth telling. Founded in 2018, we set out to create a studio where artistry meets strategy to build meaningful brand experiences.</p>
+                    <p>Our journey began with just two passionate creatives in a small studio. Today, we've grown into a diverse team of designers, photographers, and strategists who share a common vision: to elevate brands through authentic storytelling and visual excellence.</p>
+                    <p>What sets us apart is our commitment to understanding the essence of each brand we work with. We don't just create beautiful visuals - we craft narratives that resonate, connect, and inspire action.</p>
+                    <a href="C:\Users\chara\aifont.py\work page.html" class="btn">View Our Work</a>
+                </div>
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide our work and relationships</p>
+            </div>
+            <div class="values-content">
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Creative Integrity</h3>
+                    <p>We believe in creating work that's not just beautiful, but meaningful and authentic to your brand's essence.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaborative Spirit</h3>
+                    <p>Your vision is our starting point. We work with you, not just for you, to bring your story to life.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Excellence in Craft</h3>
+                    <p>Every pixel, every frame, every word is crafted with meticulous attention to detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet The Team</h2>
+                <p>The creative minds behind Swadharma</p>
+            </div>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aisha Sharma">
+                    </div>
+                    <div class="member-info">
+                        <h3>Aisha Sharma</h3>
+                        <p>Founder & Creative Director</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Raj Patel">
+                    </div>
+                    <div class="member-info">
+                        <h3>Raj Patel</h3>
+                        <p>Lead Photographer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maya Verma">
+                    </div>
+                    <div class="member-info">
+                        <h3>Maya Verma</h3>
+                        <p>Senior Designer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arjun Singh">
+                    </div>
+                    <div class="member-info">
+                        <h3>Arjun Singh</h3>
+                        <p>Video Director</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Creative Process</h2>
+                <p>How we transform your vision into impactful creative solutions</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discover</h3>
+                    <p>We begin by understanding your brand, goals, and audience through in-depth research and discovery sessions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design</h3>
+                    <p>Our creative team develops concepts and visual solutions that align with your strategic objectives.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Develop</h3>
+                    <p>We refine and execute the chosen direction with precision and attention to every detail.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Deliver</h3>
+                    <p>Final assets are delivered with guidelines to ensure consistent implementation and maximum impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Brand?</h2>
+                <p>Let's collaborate to create something extraordinary together</p>
+                <a href="C:\Users\chara\aifont.py\contact us.html" class="cta-btn">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">Swadharma<span>Creations</span></div>
+                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+            </div>
+            
+            <div class="footer-col">
+                <div class="footer-links">
+                    <a href="C:\Users\chara\aifont.py\mobile version.html" class="footer-link">Our DNA</a>
+                    <a href="C:\Users\chara\aifont.py\sevvices.html" class="footer-link">Services</a>
+                    <a href="C:\Users\chara\aifont.py\work page.html" class="footer-link">Our Work</a>
+                    <a href="C:\Users\chara\aifont.py\contact us.html" class="footer-link">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Instagram</a>
+                    <a href="#" class="footer-link">LinkedIn</a>
+                    <a href="mailto:hello@swadharmacreations.com" class="footer-link">Email</a>
+                    <a href="tel:+1234567890" class="footer-link">Phone</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2023 Swadharma Creations. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

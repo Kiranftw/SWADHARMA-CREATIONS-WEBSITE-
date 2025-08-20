@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swadharma Creations | Brand DNA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #161DA1;
+            --yellow: #FDEB10;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: var(--white);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            padding: 1rem 5%;
+        }
+        
+        .nav-logo {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 101;
+        }
+        
+        .nav-logo:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--yellow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .nav-logo:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .nav-link {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--black);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 101;
+            padding: 10px;
+        }
+        
+        .mobile-menu-btn i {
+            font-size: 28px;
+            color: var(--black);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+            text-align: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+        }
+        
+        .hero-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 1;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            color: var(--blue);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .hero-title span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-top: 1.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+        
+        .hero-highlight {
+            background-color: var(--yellow);
+            padding: 0 0.5rem;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.9;
+            z-index: 10;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element.circle {
+            width: clamp(80px, 25vw, 200px);
+            height: clamp(80px, 25vw, 200px);
+            border-radius: 50%;
+            background-color: var(--yellow);
+            top: 20%;
+            right: 10%;
+        }
+        
+        .floating-element.square {
+            width: clamp(60px, 20vw, 150px);
+            height: clamp(60px, 20vw, 150px);
+            background-color: var(--blue);
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        /* DNA Visualization Section */
+        .dna-visualization {
+            min-height: 100vh;
+            background-color: var(--white);
+            position: relative;
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+        
+        .dna-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 5%;
+        }
+        
+        .dna-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dna-title:after {
+            content: '';
+            position: absolute;
+            bottom: -0.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--yellow);
+        }
+        
+        .dna-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .dna-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            padding: 0 5%;
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .dna-element {
+            perspective: 1000px;
+        }
+        
+        .dna-card {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        
+        .dna-card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .dna-card-front, .dna-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .dna-card-front {
+            background-color: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .dna-card-back {
+            background: linear-gradient(135deg, var(--blue) 0%, #0d125e 100%);
+            transform: rotateY(180deg);
+            color: var(--white);
+        }
+        
+        .dna-icon {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        .dna-card-back .dna-icon {
+            color: var(--yellow);
+        }
+        
+        .dna-element-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin-bottom: 0.8rem;
+            color: var(--blue);
+        }
+        
+        .dna-card-back .dna-element-title {
+            color: var(--white);
+        }
+        
+        .dna-element-desc {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: #555;
+        }
+        
+        .dna-card-back .dna-element-desc {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        /* Animated DNA Strand Background */
+        .dna-strand-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .dna-strand {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 500px;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            opacity: 0.05;
+        }
+        
+        .helix {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate 60s linear infinite;
+        }
+        
+        .helix-path {
+            stroke: var(--blue);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .helix:nth-child(2) {
+            transform: translateX(20px);
+            animation-duration: 55s;
+        }
+        
+        .helix:nth-child(3) {
+            transform: translateX(40px);
+            animation-duration: 65s;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 5rem 5%;
+            background-color: var(--blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--yellow);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .value-card {
+            background-color: rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255,255,255,0.12);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .value-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .value-card:hover:before {
+            transform: translateX(0);
+        }
+        
+        .value-icon {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--yellow);
+        }
+        
+        .value-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin-bottom: 0.8rem;
+        }
+        
+        .value-desc {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--yellow);
+            opacity: 0.35;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 5%;
+            background-color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        .contact-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--yellow);
+            color: var(--black);
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid var(--yellow);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .contact-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--blue);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        
+        .contact-btn:hover {
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(253, 235, 16, 0.3);
+        }
+        
+        .contact-btn:hover:before {
+            transform: translateX(0);
+        }
+        
+       /* Footer */
+        .footer {
+            padding: 5rem 5% 3rem;
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo span {
+            color: var(--yellow);
+        }
+        
+        .footer-about {
+            max-width: 350px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.3rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--yellow);
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-link-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link-footer:hover {
+            transform: translateY(-4px);
+            background-color: var(--yellow);
+            color: var(--black);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+        
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .dna-container {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .dna-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1.2rem 5%;
+            }
+            
+            .hero {
+                padding: 0 5%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .floating-element.circle {
+                top: 15%;
+                right: 5%;
+            }
+            
+            .floating-element.square {
+                bottom: 20%;
+                left: 5%;
+            }
+            
+            .dna-card {
+                min-height: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">Swadharma</a>
+        <div class="nav-links">
+            <a href="C:\Users\chara\aifont.py\mobile version.html" class="nav-link">Brand DNA</a>
+            <a href="C:\Users\chara\aifont.py\aboutus.html" class="nav-link">About us</a>
+            <a href="C:\Users\chara\aifont.py\sevvices.html" class="nav-link">Services</a>
+            <a href="C:\Users\chara\aifont.py\work page.html" class="nav-link">Our work</a>
+            <a href="C:\Users\chara\aifont.py\contact us.html" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="nav-links">
+            <a href="C:\Users\chara\aifont.py\mobile version.html" class="nav-link">Brand DNA</a>
+            <a href="C:\Users\chara\aifont.py\aboutus.html" class="nav-link">About us</a>
+            <a href="C:\Users\chara\aifont.py\sevvices.html" class="nav-link">Services</a>
+            <a href="C:\Users\chara\aifont.py\work page.html" class="nav-link">Our work</a>
+            <a href="C:\Users\chara\aifont.py\contact us.html" class="nav-link">Contact</a>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Floating elements -->
+        <div class="floating-elements">
+            <div class="floating-element circle"></div>
+            <div class="floating-element square"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title"><span>Swadharma</span></h1>
+            <h1 class="hero-title"><span>Creations</span></h1>
+            <p class="hero-subtitle">Where <span class="hero-highlight">creative storytelling</span> meets strategic design excellence</p>
+        </div>
+    </section>
+
+    <!-- Brand DNA Visualization -->
+    <section class="dna-visualization" id="dna">
+        <div class="dna-strand-bg">
+            <div class="dna-strand">
+                <div class="helix">
+                    <svg viewBox="0 0 400 400">
+                        <path class="helix-path" d="M200,50 Q250,100 200,150 Q150,200 200,250 Q250,300 200,350" />
+                    </svg>
+                </div>
+                <div class="helix">
+                    <svg viewBox="0 0 400 400">
+                        <path class="helix-path" d="M200,50 Q150,100 200,150 Q250,200 200,250 Q150,300 200,350" />
+                    </svg>
+                </div>
+                <div class="helix">
+                    <svg viewBox="0 0 400 400">
+                        <path class="helix-path" d="M200,50 Q250,100 200,150 Q150,200 200,250 Q250,300 200,350" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dna-header">
+            <h2 class="dna-title">Our Creative DNA</h2>
+            <p class="dna-subtitle">The fundamental elements that define our approach to creative work and brand development</p>
+        </div>
+        
+        <div class="dna-container">
+            <div class="dna-element">
+                <div class="dna-card">
+                    <div class="dna-card-front">
+                        <div class="dna-icon">🎨</div>
+                        <h3 class="dna-element-title">Creative Storytelling</h3>
+                        <p class="dna-element-desc">Transforming ideas into visual narratives that captivate audiences and build lasting connections.</p>
+                    </div>
+                    <div class="dna-card-back">
+                        <div class="dna-icon">🎨</div>
+                        <h3 class="dna-element-title">Creative Storytelling</h3>
+                        <p class="dna-element-desc">We blend imagination and strategy to create stories that resonate emotionally and drive engagement.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dna-element">
+                <div class="dna-card">
+                    <div class="dna-card-front">
+                        <div class="dna-icon">✨</div>
+                        <h3 class="dna-element-title">Design Excellence</h3>
+                        <p class="dna-element-desc">Crafting clean, high-impact designs that communicate clearly across all mediums.</p>
+                    </div>
+                    <div class="dna-card-back">
+                        <div class="dna-icon">✨</div>
+                        <h3 class="dna-element-title">Design Excellence</h3>
+                        <p class="dna-element-desc">Precision and attention to detail define our work—never rushed, never messy, always considered.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dna-element">
+                <div class="dna-card">
+                    <div class="dna-card-front">
+                        <div class="dna-icon">🚀</div>
+                        <h3 class="dna-element-title">Strategic Impact</h3>
+                        <p class="dna-element-desc">More than aesthetics—we design with purpose to elevate brands and deliver results.</p>
+                    </div>
+                    <div class="dna-card-back">
+                        <div class="dna-icon">🚀</div>
+                        <h3 class="dna-element-title">Strategic Impact</h3>
+                        <p class="dna-element-desc">Every project is crafted with intention, backed by purpose and a strategic plan for success.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dna-element">
+                <div class="dna-card">
+                    <div class="dna-card-front">
+                        <div class="dna-icon">❤️</div>
+                        <h3 class="dna-element-title">Empathetic Approach</h3>
+                        <p class="dna-element-desc">Creating work that resonates on a human level through deep understanding.</p>
+                    </div>
+                    <div class="dna-card-back">
+                        <div class="dna-icon">❤️</div>
+                        <h3 class="dna-element-title">Empathetic Approach</h3>
+                        <p class="dna-element-desc">We listen deeply to understand audiences, creating connections that go beyond the surface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section" id="values">
+        <div class="particles" id="particles"></div>
+        
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="values-container">
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3 class="value-title">Creative</h3>
+                <p class="value-desc">We think beyond the obvious. Every idea, frame, and design is driven by imagination and originality.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🔒</div>
+                <h3 class="value-title">Confident</h3>
+                <p class="value-desc">We stand behind our work with conviction, delivering solutions that make a bold statement.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🔍</div>
+                <h3 class="value-title">Refined</h3>
+                <p class="value-desc">Precision and attention to detail define our work—never rushed, never messy, always considered.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3 class="value-title">Strategic</h3>
+                <p class="value-desc">We create with intention. Every design and campaign is backed by purpose and a plan.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3 class="value-title">Empathetic</h3>
+                <p class="value-desc">We listen, we understand, and we tell stories that truly connect with people.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="contact-title">Let's Create Together</h2>
+        <p class="contact-subtitle">Ready to elevate your brand with compelling storytelling and strategic design?</p>
+        <a href="C:\Users\chara\aifont.py\contact us.html" class="contact-btn">Get in Touch</a>
+    </section>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Swadharma<span>Creations</span></div>
+                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+            </div>
+            
+            <div class="footer-links">
+               <a href="C:\Users\chara\aifont.py\mobile version.html" class="footer-link">Our DNA</a>
+                    <a href="C:\Users\chara\aifont.py\sevvices.html" class="footer-link">Services</a>
+                    <a href="C:\Users\chara\aifont.py\work page.html" class="footer-link">Our Work</a>
+                     <a href="C:\Users\chara\aifont.py\aboutus.html" class="footer-link">About us</a>
+                    <a href="C:\Users\chara\aifont.py\contact us.html" class="footer-link">Contact</a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://instagram.com/swadharmacreations" class="footer-link">Instagram</a>
+                <a href="https://linkedin.com/company/swadharmacreations" class="footer-link">LinkedIn</a>
+                <a href="mailto:swadharamcreations@gmail.com" class="footer-link">Email</a>
+                <a href="tel:+1234567890" class="footer-link">Phone</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2023 Swadharma Creations. All rights reserved.
+        </div>
+    </footer>
+    
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Hero text animation
+        const heroTitleSpans = document.querySelectorAll('.hero-title span');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        
+        setTimeout(() => {
+            heroTitleSpans.forEach((span, index) => {
+                setTimeout(() => {
+                    span.style.transform = 'translateY(0)';
+                    span.style.opacity = '1';
+                }, 300 * index);
+            });
+            
+            setTimeout(() => {
+                heroSubtitle.style.transform = 'translateY(0)';
+                heroSubtitle.style.opacity = '1';
+            }, 900);
+        }, 500);
+        
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size
+            const size = Math.random() * 8 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random animation
+            particle.style.animation = `float ${Math.random() * 6 + 4}s infinite ease-in-out`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            
+            particlesContainer.appendChild(particle);
+        }
+        
+        // DNA card flip effect
+        const dnaCards = document.querySelectorAll('.dna-card');
+        
+        // Detect touch devices
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+        
+        dnaCards.forEach(card => {
+            if (!isTouchDevice) {
+                // Desktop - hover effect
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('flipped');
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('flipped');
+                });
+            } else {
+                // Mobile - click effect
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
+                });
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                }
+            });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            // Change icon based on menu state
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        menuOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>
