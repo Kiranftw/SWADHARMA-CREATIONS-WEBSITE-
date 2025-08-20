@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swadharma Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -17,13 +20,13 @@
             --gray: #f8f9fa;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Roboto', sans-serif;
             color: var(--black);
@@ -31,7 +34,7 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-        
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -46,12 +49,12 @@
             background-color: var(--white);
             transition: var(--transition);
         }
-        
+
         .navbar.scrolled {
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
             padding: 1rem 5%;
         }
-        
+
         .nav-logo {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -61,7 +64,7 @@
             letter-spacing: 1px;
             position: relative;
         }
-        
+
         .nav-logo:after {
             content: '';
             position: absolute;
@@ -74,17 +77,17 @@
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .nav-logo:hover:after {
             transform: scaleX(1);
             transform-origin: left;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
         }
-        
+
         .nav-link {
             font-family: 'Roboto', sans-serif;
             font-weight: 500;
@@ -94,7 +97,7 @@
             position: relative;
             padding: 0.5rem 0;
         }
-        
+
         .nav-link:after {
             content: '';
             position: absolute;
@@ -105,11 +108,11 @@
             background-color: var(--yellow);
             transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .nav-link:hover:after {
             width: 100%;
         }
-        
+
         /* Mobile Navigation */
         .mobile-menu-btn {
             display: none;
@@ -120,7 +123,7 @@
             color: var(--black);
             z-index: 101;
         }
-        
+
         .mobile-nav {
             position: fixed;
             top: 0;
@@ -128,23 +131,23 @@
             width: 280px;
             height: 100%;
             background-color: var(--white);
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 100;
             transition: right 0.4s ease;
             padding-top: 80px;
             overflow-y: auto;
         }
-        
+
         .mobile-nav.active {
             right: 0;
         }
-        
+
         .mobile-nav-links {
             display: flex;
             flex-direction: column;
             padding: 2rem;
         }
-        
+
         .mobile-nav-link {
             padding: 1rem 0;
             font-size: 1.2rem;
@@ -153,27 +156,27 @@
             border-bottom: 1px solid #eee;
             transition: all 0.3s ease;
         }
-        
+
         .mobile-nav-link:hover {
             color: var(--blue);
             padding-left: 10px;
         }
-        
+
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 99;
             display: none;
         }
-        
+
         .overlay.active {
             display: block;
         }
-        
+
         /* Hero Section */
         .work-hero {
             height: 70vh;
@@ -187,12 +190,12 @@
             margin-top: 80px;
             text-align: center;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .hero-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -203,7 +206,7 @@
             color: var(--blue);
             position: relative;
         }
-        
+
         .hero-highlight {
             background-color: var(--yellow);
             color: var(--blue);
@@ -211,12 +214,12 @@
             display: inline-block;
             transition: var(--transition);
         }
-        
+
         .hero-highlight:hover {
             color: var(--yellow);
             background-color: transparent;
         }
-        
+
         .hero-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
@@ -228,7 +231,7 @@
             margin-right: auto;
             color: #555;
         }
-        
+
         /* Service Navigation */
         .services-nav {
             background-color: var(--white);
@@ -236,9 +239,9 @@
             position: sticky;
             top: 80px;
             z-index: 50;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .services-container {
             display: flex;
             justify-content: center;
@@ -248,7 +251,7 @@
             margin: 0 auto;
             padding: 0 5%;
         }
-        
+
         .service-btn {
             background: transparent;
             border: 2px solid var(--blue);
@@ -265,34 +268,42 @@
             z-index: 1;
             margin: 0.3rem;
         }
-        
-        .service-btn.active, .service-btn:hover {
+
+        .service-btn.active,
+        .service-btn:hover {
             color: var(--white);
             background-color: var(--blue);
             border-color: var(--blue);
         }
-        
+
         /* Work Sections */
         .work-section {
             padding: 4rem 5%;
             display: none;
         }
-        
+
         .work-section.active {
             display: block;
             animation: fadeIn 0.8s ease;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .section-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -302,7 +313,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title:after {
             content: '';
             position: absolute;
@@ -313,7 +324,7 @@
             height: 4px;
             background-color: var(--yellow);
         }
-        
+
         .section-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -322,33 +333,38 @@
             margin: 0 auto;
             color: #555;
         }
-        
+
         /* Enhanced Photography Portfolio */
-        .photography-grid, .gallery-grid {
+        .photography-grid,
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
-        .project-card, .gallery-item {
+
+        .project-card,
+        .gallery-item {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             transform: translateY(0);
             cursor: pointer;
             position: relative;
         }
-        
-        .project-card:hover, .gallery-item:hover {
+
+        .project-card:hover,
+        .gallery-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(22, 29, 161, 0.15);
         }
-        
-        .project-image, .gallery-item img, .gallery-item video {
+
+        .project-image,
+        .gallery-item img,
+        .gallery-item video {
             height: 280px;
             width: 100%;
             object-fit: cover;
@@ -357,8 +373,9 @@
             position: relative;
             overflow: hidden;
         }
-        
-        .project-overlay, .gallery-overlay {
+
+        .project-overlay,
+        .gallery-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -372,13 +389,14 @@
             opacity: 0;
             transition: var(--transition);
         }
-        
-        .project-card:hover .project-overlay, 
+
+        .project-card:hover .project-overlay,
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
         }
-        
-        .view-project, .video-icon {
+
+        .view-project,
+        .video-icon {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -399,7 +417,7 @@
             font-size: 1rem;
             text-align: center;
         }
-        
+
         .video-icon {
             width: 60px;
             height: 60px;
@@ -407,64 +425,68 @@
             padding: 0;
             background: rgba(22, 29, 161, 0.7);
         }
-        
-        .project-card:hover .view-project, 
+
+        .project-card:hover .view-project,
         .gallery-item:hover .video-icon {
             opacity: 1;
         }
-        
+
         .project-info {
             padding: 1.5rem;
         }
-        
-        .project-title, .gallery-title {
+
+        .project-title,
+        .gallery-title {
             font-family: 'Commissioner', sans-serif;
             font-size: 1.5rem;
             color: var(--blue);
             margin-bottom: 0.8rem;
         }
-        
-        .project-desc, .gallery-category {
+
+        .project-desc,
+        .gallery-category {
             font-family: 'Roboto', sans-serif;
             color: #555;
             margin-bottom: 1.2rem;
             font-size: 0.95rem;
         }
-        
+
         .project-stats {
             display: flex;
             justify-content: space-between;
             border-top: 1px solid #eee;
             padding-top: 1rem;
         }
-        
+
         .stat {
             text-align: center;
         }
-        
+
         .stat-value {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
             font-size: 1.3rem;
             color: var(--blue);
         }
-        
+
         .stat-label {
             font-family: 'Roboto', sans-serif;
             font-size: 0.85rem;
             color: #777;
         }
-        
+
         /* Category Filter */
-        .category-filter, .gallery-tabs {
+        .category-filter,
+        .gallery-tabs {
             display: flex;
             justify-content: center;
             margin-bottom: 2.5rem;
             flex-wrap: wrap;
             gap: 0.6rem;
         }
-        
-        .filter-btn, .gallery-tab {
+
+        .filter-btn,
+        .gallery-tab {
             background: transparent;
             border: 2px solid var(--blue);
             color: var(--blue);
@@ -476,14 +498,16 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        
-        .filter-btn.active, .filter-btn:hover,
-        .gallery-tab.active, .gallery-tab:hover {
+
+        .filter-btn.active,
+        .filter-btn:hover,
+        .gallery-tab.active,
+        .gallery-tab:hover {
             color: var(--white);
             background-color: var(--blue);
             border-color: var(--blue);
         }
-        
+
         /* Lightbox - FIXED SECTION */
         .lightbox {
             display: none;
@@ -498,25 +522,26 @@
             justify-content: center;
             touch-action: none;
         }
-        
+
         .lightbox.active {
             display: flex;
         }
-        
+
         .lightbox-content {
             max-width: 90%;
             max-height: 90%;
             position: relative;
             text-align: center;
         }
-        
-        .lightbox-content img, .lightbox-content video {
+
+        .lightbox-content img,
+        .lightbox-content video {
             max-width: 100%;
             max-height: 80vh;
             border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
-        
+
         .lightbox-close {
             position: absolute;
             top: 20px;
@@ -535,12 +560,12 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .lightbox-close:hover {
             opacity: 1;
             transform: rotate(90deg);
         }
-        
+
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -551,12 +576,13 @@
             padding: 0 15px;
             z-index: 1001;
         }
-        
-        .lightbox-prev, .lightbox-next {
+
+        .lightbox-prev,
+        .lightbox-next {
             color: white;
             font-size: 2.5rem;
             cursor: pointer;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             border: none;
             width: 60px;
             height: 60px;
@@ -567,13 +593,14 @@
             opacity: 0.7;
             transition: var(--transition);
         }
-        
-        .lightbox-prev:hover, .lightbox-next:hover {
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
             opacity: 1;
             background: var(--blue);
             transform: scale(1.1);
         }
-        
+
         .lightbox-info {
             position: absolute;
             bottom: 15px;
@@ -583,20 +610,20 @@
             color: white;
             font-family: 'Roboto', sans-serif;
             padding: 0.8rem;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 0 0 8px 8px;
         }
-        
+
         .lightbox-title {
             font-size: 1.5rem;
             margin-bottom: 0.3rem;
         }
-        
+
         .lightbox-counter {
             font-size: 1rem;
             opacity: 0.8;
         }
-        
+
         /* Testimonials */
         .testimonials-section {
             background-color: var(--blue-xlight);
@@ -604,28 +631,28 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .testimonial-card {
             background-color: var(--white);
             border-radius: 16px;
             padding: 2rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
             position: relative;
             transition: var(--transition);
         }
-        
+
         .testimonial-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(22, 29, 161, 0.1);
         }
-        
+
         .testimonial-text {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
@@ -636,7 +663,7 @@
             margin-bottom: 1.5rem;
             position: relative;
         }
-        
+
         .testimonial-text:before {
             content: '"';
             position: absolute;
@@ -648,13 +675,13 @@
             opacity: 0.1;
             line-height: 1;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
-        
+
         .author-avatar {
             width: 50px;
             height: 50px;
@@ -662,13 +689,13 @@
             overflow: hidden;
             border: 2px solid var(--blue);
         }
-        
+
         .author-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .author-info h4 {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -676,22 +703,22 @@
             color: var(--blue);
             margin-bottom: 0.2rem;
         }
-        
+
         .author-info p {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 0.9rem;
             color: #777;
         }
-        
-/* Footer */
+
+        /* Footer */
         .footer {
             padding: 5rem 5% 3rem;
             background-color: var(--black);
             color: var(--white);
             position: relative;
         }
-        
+
         .footer-content {
             display: flex;
             justify-content: space-between;
@@ -700,7 +727,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .footer-logo {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -708,11 +735,11 @@
             color: var(--white);
             margin-bottom: 1.5rem;
         }
-        
+
         .footer-logo span {
             color: var(--yellow);
         }
-        
+
         .footer-about {
             max-width: 350px;
             font-family: 'Roboto', sans-serif;
@@ -721,13 +748,13 @@
             opacity: 0.8;
             line-height: 1.6;
         }
-        
+
         .footer-links {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-        
+
         .footer-link {
             color: var(--white);
             text-decoration: none;
@@ -738,7 +765,7 @@
             padding: 0.3rem 0;
             transition: all 0.3s ease;
         }
-        
+
         .footer-link:after {
             content: '';
             position: absolute;
@@ -749,19 +776,19 @@
             background-color: var(--yellow);
             transition: width 0.3s ease;
         }
-        
+
         .footer-link:hover {
             color: var(--yellow);
         }
-        
+
         .footer-link:hover:after {
             width: 100%;
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 0.9rem;
@@ -769,7 +796,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .social-link-footer {
             display: flex;
             align-items: center;
@@ -783,15 +810,15 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-link-footer:hover {
             transform: translateY(-4px);
             background-color: var(--yellow);
             color: var(--black);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
-        
-        
+
+
         /* Floating Elements */
         .floating-element {
             position: absolute;
@@ -799,7 +826,7 @@
             opacity: 0.9;
             pointer-events: none;
         }
-        
+
         .floating-element.circle {
             width: 200px;
             height: 200px;
@@ -809,7 +836,7 @@
             right: 10%;
             animation: float 8s ease-in-out infinite;
         }
-        
+
         .floating-element.square {
             width: 150px;
             height: 150px;
@@ -819,319 +846,343 @@
             animation: float 10s ease-in-out infinite;
             animation-delay: 1s;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
-        
+
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .photography-grid, .gallery-grid {
+
+            .photography-grid,
+            .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
         }
-        
+
         @media (max-width: 992px) {
             .hero-title {
                 font-size: 4rem;
             }
-            
+
             .section-title {
                 font-size: 3rem;
             }
-            
+
             .footer-content {
                 gap: 2rem;
             }
         }
-        
+
         @media (max-width: 768px) {
             .navbar {
                 padding: 1.2rem 5%;
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .work-hero {
                 padding: 0 5%;
                 height: 60vh;
                 margin-top: 70px;
             }
-            
+
             .hero-title {
                 font-size: 3rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .services-nav {
                 top: 70px;
             }
-            
+
             .section-title {
                 font-size: 2.5rem;
             }
-            
+
             .section-subtitle {
                 font-size: 1.1rem;
                 padding: 0 1rem;
             }
-            
-            .photography-grid, .gallery-grid {
+
+            .photography-grid,
+            .gallery-grid {
                 grid-template-columns: 1fr;
                 gap: 1.8rem;
             }
-            
-            .project-image, .gallery-item img, .gallery-item video {
+
+            .project-image,
+            .gallery-item img,
+            .gallery-item video {
                 height: 250px;
             }
-            
+
             .testimonial-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .floating-element.circle {
                 width: 150px;
                 height: 150px;
                 top: 15%;
                 right: -30px;
             }
-            
+
             .floating-element.square {
                 width: 120px;
                 height: 120px;
                 bottom: 10%;
                 left: -20px;
             }
-            
+
             /* Lightbox fixes for mobile */
-            .lightbox-prev, .lightbox-next {
+            .lightbox-prev,
+            .lightbox-next {
                 width: 50px;
                 height: 50px;
                 font-size: 2rem;
             }
-            
+
             .lightbox-close {
                 top: 15px;
                 right: 15px;
                 font-size: 2.2rem;
             }
-            
+
             .lightbox-title {
                 font-size: 1.3rem;
             }
-            
+
             .lightbox-counter {
                 font-size: 0.9rem;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero-title {
                 font-size: 2.5rem;
                 line-height: 1.2;
             }
-            
+
             .section-title {
                 font-size: 2.2rem;
             }
-            
+
             .section-title:after {
                 width: 80px;
                 height: 3px;
                 bottom: -0.8rem;
             }
-            
+
             .services-container {
                 gap: 0.5rem;
             }
-            
+
             .service-btn {
                 padding: 0.6rem 1.3rem;
                 font-size: 0.95rem;
             }
-            
-            .project-image, .gallery-item img, .gallery-item video {
+
+            .project-image,
+            .gallery-item img,
+            .gallery-item video {
                 height: 220px;
             }
-            
-            .project-info, .testimonial-card {
+
+            .project-info,
+            .testimonial-card {
                 padding: 1.2rem;
             }
-            
-            .project-title, .gallery-title {
+
+            .project-title,
+            .gallery-title {
                 font-size: 1.3rem;
             }
-            
-            .project-desc, .gallery-category {
+
+            .project-desc,
+            .gallery-category {
                 font-size: 0.9rem;
             }
-            
+
             .stat-value {
                 font-size: 1.1rem;
             }
-            
+
             .stat-label {
                 font-size: 0.8rem;
             }
-            
-            .category-filter, .gallery-tabs {
+
+            .category-filter,
+            .gallery-tabs {
                 gap: 0.4rem;
             }
-            
-            .filter-btn, .gallery-tab {
+
+            .filter-btn,
+            .gallery-tab {
                 padding: 0.5rem 1.2rem;
                 font-size: 0.9rem;
             }
-            
+
             .testimonial-card {
                 padding: 1.5rem;
             }
-            
+
             .footer-content {
                 flex-direction: column;
                 gap: 2rem;
             }
-            
+
             .footer-logo {
                 font-size: 1.6rem;
             }
-            
+
             /* Additional lightbox fixes for small screens */
             .lightbox-title {
                 font-size: 1.1rem;
             }
-            
+
             .lightbox-counter {
                 font-size: 0.8rem;
             }
-            
-            .lightbox-prev, .lightbox-next {
+
+            .lightbox-prev,
+            .lightbox-next {
                 width: 40px;
                 height: 40px;
                 font-size: 1.5rem;
             }
-            
+
             .lightbox-close {
                 width: 40px;
                 height: 40px;
                 font-size: 1.8rem;
             }
-            
+
             .lightbox-info {
                 padding: 0.5rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .hero-title {
                 font-size: 2.2rem;
             }
-            
+
             .hero-highlight {
                 padding: 0 0.3rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.1rem;
                 margin-top: 1rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
-            
+
             .section-subtitle {
                 font-size: 1rem;
             }
-            
+
             .project-stats {
                 flex-direction: column;
                 gap: 0.8rem;
                 padding-top: 0.8rem;
             }
-            
+
             .stat {
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
             }
-            
+
             .stat-value {
                 font-size: 1.2rem;
             }
-            
+
             .floating-element.circle {
                 width: 120px;
                 height: 120px;
                 top: 12%;
                 right: -40px;
             }
-            
+
             .floating-element.square {
                 width: 100px;
                 height: 100px;
                 bottom: 8%;
                 left: -30px;
             }
-            
+
             .view-project {
                 font-size: 0.9rem;
                 padding: 0.6rem 1.2rem;
             }
         }
-        
+
         @media (max-width: 360px) {
             .hero-title {
                 font-size: 1.9rem;
             }
-            
+
             .section-title {
                 font-size: 1.8rem;
             }
-            
+
             .service-btn {
                 padding: 0.5rem 1.1rem;
                 font-size: 0.9rem;
             }
-            
-            .project-image, .gallery-item img, .gallery-item video {
+
+            .project-image,
+            .gallery-item img,
+            .gallery-item video {
                 height: 200px;
             }
-            
+
             .testimonial-author {
                 gap: 1rem;
             }
-            
+
             .author-avatar {
                 width: 45px;
                 height: 45px;
             }
-            
+
             /* Final lightbox adjustments for very small screens */
             .lightbox-title {
                 font-size: 1rem;
             }
-            
+
             .lightbox-counter {
                 font-size: 0.75rem;
             }
-            
-            .lightbox-prev, .lightbox-next {
+
+            .lightbox-prev,
+            .lightbox-next {
                 width: 35px;
                 height: 35px;
                 font-size: 1.2rem;
             }
-            
+
             .lightbox-close {
                 top: 10px;
                 right: 10px;
@@ -1142,22 +1193,24 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">Swadharma</a>
         <div class="nav-links">
-            <a href="C:\Users\chara\aifont.py\mobile version.html" class="nav-link">Brand DNA</a>
-            <a href="C:\Users\chara\aifont.py\aboutus.html" class="nav-link">About us</a>
-            <a href="C:\Users\chara\aifont.py\sevvices.html" class="nav-link">Services</a>
-            <a href="C:\Users\chara\aifont.py\work page.html" class="nav-link">Our work</a>
-            <a href="C:\Users\chara\aifont.py\contact us.html" class="nav-link">Contact</a>
+            <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
+            <a href="{{ url_for('aboutUS') }}" class="nav-link">About us</a>
+            <a href="{{ url_for('services') }}" class="nav-link">Services</a>
+            <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
+            <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
         </div>
+
         <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
         </button>
     </nav>
-    
+
     <!-- Mobile Navigation -->
     <div class="overlay" id="overlay"></div>
     <div class="mobile-nav" id="mobileNav">
@@ -1174,7 +1227,8 @@
     <section class="work-hero">
         <div class="hero-content">
             <h1 class="hero-title">Our <span class="hero-highlight">Creative</span> Work</h1>
-            <p class="hero-subtitle">Explore our portfolio of innovative projects that blend storytelling, design excellence, and strategic impact</p>
+            <p class="hero-subtitle">Explore our portfolio of innovative projects that blend storytelling, design
+                excellence, and strategic impact</p>
         </div>
         <div class="floating-element circle"></div>
         <div class="floating-element square"></div>
@@ -1196,7 +1250,7 @@
             <h2 class="section-title">Photography Portfolio</h2>
             <p class="section-subtitle">Capturing moments that tell stories and evoke emotions through our lens</p>
         </div>
-        
+
         <!-- Category Filter -->
         <div class="category-filter">
             <button class="filter-btn active" data-category="all">All Projects</button>
@@ -1204,12 +1258,13 @@
             <button class="filter-btn" data-category="portraits">Portraits</button>
             <button class="filter-btn" data-category="products">Products</button>
         </div>
-        
+
         <!-- Project Grid -->
         <div class="photography-grid">
             <!-- Project 1 -->
             <div class="project-card" data-project="urban" data-category="commercial">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
                     <div class="project-overlay">
                         <h3 class="project-title">Urban Dining Experience</h3>
                         <p class="project-desc">Commercial Photography Series</p>
@@ -1218,7 +1273,8 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Urban Dining Experience</h3>
-                    <p class="project-desc">Capturing the essence of modern dining in an urban setting with natural lighting and authentic moments.</p>
+                    <p class="project-desc">Capturing the essence of modern dining in an urban setting with natural
+                        lighting and authentic moments.</p>
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-value">24</div>
@@ -1235,10 +1291,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 2 -->
             <div class="project-card" data-project="portraits" data-category="portraits">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
                     <div class="project-overlay">
                         <h3 class="project-title">Authentic Expressions</h3>
                         <p class="project-desc">Portrait Photography Series</p>
@@ -1247,7 +1304,8 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Authentic Expressions</h3>
-                    <p class="project-desc">A collection of portraits capturing genuine human emotions and expressions in natural environments.</p>
+                    <p class="project-desc">A collection of portraits capturing genuine human emotions and expressions
+                        in natural environments.</p>
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-value">18</div>
@@ -1264,10 +1322,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 3 -->
             <div class="project-card" data-project="product" data-category="products">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
                     <div class="project-overlay">
                         <h3 class="project-title">Minimalist Watch Design</h3>
                         <p class="project-desc">Product Photography Series</p>
@@ -1276,7 +1335,8 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Minimalist Watch Design</h3>
-                    <p class="project-desc">Showcasing the elegance of minimalist watch design through detailed product photography.</p>
+                    <p class="project-desc">Showcasing the elegance of minimalist watch design through detailed product
+                        photography.</p>
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-value">32</div>
@@ -1293,10 +1353,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 4 -->
             <div class="project-card" data-project="fashion" data-category="commercial">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
                     <div class="project-overlay">
                         <h3 class="project-title">Urban Fashion</h3>
                         <p class="project-desc">Fashion Photography Series</p>
@@ -1305,7 +1366,8 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Urban Fashion</h3>
-                    <p class="project-desc">Capturing street fashion in downtown environments with natural lighting and authentic moments.</p>
+                    <p class="project-desc">Capturing street fashion in downtown environments with natural lighting and
+                        authentic moments.</p>
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-value">28</div>
@@ -1322,10 +1384,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 5 -->
             <div class="project-card" data-project="corporate" data-category="portraits">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
                     <div class="project-overlay">
                         <h3 class="project-title">Corporate Portraits</h3>
                         <p class="project-desc">Professional Headshots</p>
@@ -1334,7 +1397,8 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Corporate Portraits</h3>
-                    <p class="project-desc">Professional headshots for corporate executives in modern office environments.</p>
+                    <p class="project-desc">Professional headshots for corporate executives in modern office
+                        environments.</p>
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-value">45</div>
@@ -1351,10 +1415,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 6 -->
             <div class="project-card" data-project="jewelry" data-category="products">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
                     <div class="project-overlay">
                         <h3 class="project-title">Luxury Jewelry</h3>
                         <p class="project-desc">Product Photography Series</p>
@@ -1363,7 +1428,8 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Luxury Jewelry</h3>
-                    <p class="project-desc">Highlighting the intricate details of luxury jewelry pieces with professional lighting techniques.</p>
+                    <p class="project-desc">Highlighting the intricate details of luxury jewelry pieces with
+                        professional lighting techniques.</p>
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-value">38</div>
@@ -1389,18 +1455,21 @@
             <h2 class="section-title">Videography Portfolio</h2>
             <p class="section-subtitle">Cinematic storytelling that captures attention and conveys powerful messages</p>
         </div>
-        
+
         <div class="gallery-tabs">
             <button class="gallery-tab active" data-category="all">All</button>
             <button class="gallery-tab" data-category="commercial">Commercial</button>
             <button class="gallery-tab" data-category="documentary">Documentary</button>
             <button class="gallery-tab" data-category="brand">Brand Films</button>
         </div>
-        
+
         <div class="gallery-grid">
             <div class="gallery-item video" data-category="commercial">
-                <video poster="https://images.unsplash.com/photo-1574717024453-354056aafa98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-large.mp4" type="video/mp4">
+                <video
+                    poster="https://images.unsplash.com/photo-1574717024453-354056aafa98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-large.mp4"
+                        type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
@@ -1410,10 +1479,12 @@
                     <p class="gallery-category">Commercial Videography</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item video" data-category="documentary">
-                <video poster="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4" type="video/mp4">
+                <video
+                    poster="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4"
+                        type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
@@ -1423,10 +1494,13 @@
                     <p class="gallery-category">Documentary Film</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item video" data-category="brand">
-                <video poster="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-laptop-4082-large.mp4" type="video/mp4">
+                <video
+                    poster="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-laptop-4082-large.mp4"
+                        type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
@@ -1436,10 +1510,13 @@
                     <p class="gallery-category">Brand Film</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item video" data-category="commercial">
-                <video poster="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-female-hands-typing-on-a-laptop-4084-large.mp4" type="video/mp4">
+                <video
+                    poster="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-female-hands-typing-on-a-laptop-4084-large.mp4"
+                        type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
@@ -1449,10 +1526,13 @@
                     <p class="gallery-category">Commercial Videography</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item video" data-category="documentary">
-                <video poster="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-father-and-daughter-eating-marshmallows-in-nature-39765-large.mp4" type="video/mp4">
+                <video
+                    poster="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-father-and-daughter-eating-marshmallows-in-nature-39765-large.mp4"
+                        type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
@@ -1462,10 +1542,13 @@
                     <p class="gallery-category">Documentary Film</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item video" data-category="brand">
-                <video poster="https://images.unsplash.com/photo-1633287387306-f08b4b9ca6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-coffee-beans-being-poured-4141-large.mp4" type="video/mp4">
+                <video
+                    poster="https://images.unsplash.com/photo-1633287387306-f08b4b9ca6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-coffee-beans-being-poured-4141-large.mp4"
+                        type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
@@ -1484,57 +1567,63 @@
             <h2 class="section-title">Editing Portfolio</h2>
             <p class="section-subtitle">Crafting seamless narratives through precision editing techniques</p>
         </div>
-        
+
         <div class="gallery-tabs">
             <button class="gallery-tab active" data-category="all">All</button>
             <button class="gallery-tab" data-category="video">Video Editing</button>
             <button class="gallery-tab" data-category="photo">Photo Editing</button>
             <button class="gallery-tab" data-category="motion">Motion Graphics</button>
         </div>
-        
+
         <div class="gallery-grid">
             <div class="gallery-item" data-category="video">
-                <img src="https://images.unsplash.com/photo-1574717024453-354056aafa98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Video Editing">
+                <img src="https://images.unsplash.com/photo-1574717024453-354056aafa98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Video Editing">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Cinematic Sequence</h3>
                     <p class="gallery-category">Video Editing</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="photo">
-                <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Photo Editing">
+                <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Photo Editing">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Color Grading</h3>
                     <p class="gallery-category">Photo Editing</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="motion">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Motion Graphics">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Motion Graphics">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Animated Transitions</h3>
                     <p class="gallery-category">Motion Graphics</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="video">
-                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Video Editing">
+                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Video Editing">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Documentary Cut</h3>
                     <p class="gallery-category">Video Editing</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="photo">
-                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Photo Editing">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Photo Editing">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Retouching Mastery</h3>
                     <p class="gallery-category">Photo Editing</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="motion">
-                <img src="https://images.unsplash.com/photo-1633287387306-f08b4b9ca6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Motion Graphics">
+                <img src="https://images.unsplash.com/photo-1633287387306-f08b4b9ca6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Motion Graphics">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Visual Effects</h3>
                     <p class="gallery-category">Motion Graphics</p>
@@ -1549,57 +1638,63 @@
             <h2 class="section-title">Design Portfolio</h2>
             <p class="section-subtitle">Creating visual identities that communicate brand values effectively</p>
         </div>
-        
+
         <div class="gallery-tabs">
             <button class="gallery-tab active" data-category="all">All</button>
             <button class="gallery-tab" data-category="branding">Branding</button>
             <button class="gallery-tab" data-category="ui">UI/UX</button>
             <button class="gallery-tab" data-category="print">Print Design</button>
         </div>
-        
+
         <div class="gallery-grid">
             <div class="gallery-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1567443024551-f3e3cc2be870?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Brand Identity">
+                <img src="https://images.unsplash.com/photo-1567443024551-f3e3cc2be870?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Brand Identity">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Corporate Identity</h3>
                     <p class="gallery-category">Branding</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="ui">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="UI/UX Design">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="UI/UX Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Mobile App Experience</h3>
                     <p class="gallery-category">UI/UX Design</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="print">
-                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Print Design">
+                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Print Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Brochure Design</h3>
                     <p class="gallery-category">Print Design</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1600856209923-34372e319a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Brand Identity">
+                <img src="https://images.unsplash.com/photo-1600856209923-34372e319a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Brand Identity">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Logo Evolution</h3>
                     <p class="gallery-category">Branding</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="ui">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="UI/UX Design">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="UI/UX Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Dashboard Design</h3>
                     <p class="gallery-category">UI/UX Design</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="print">
-                <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Print Design">
+                <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Print Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Business Cards</h3>
                     <p class="gallery-category">Print Design</p>
@@ -1614,13 +1709,16 @@
             <h2 class="section-title">Client Testimonials</h2>
             <p class="section-subtitle">What our clients say about working with Swadharma Creations</p>
         </div>
-        
+
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">Working with Swadharma was a game-changer for our brand. Their creative storytelling approach transformed how our audience perceives us. The photography and videography were exceptional quality.</p>
+                <p class="testimonial-text">Working with Swadharma was a game-changer for our brand. Their creative
+                    storytelling approach transformed how our audience perceives us. The photography and videography
+                    were exceptional quality.</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Sarah Johnson">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Sarah Johnson">
                     </div>
                     <div class="author-info">
                         <h4>Sarah Johnson</h4>
@@ -1628,12 +1726,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="testimonial-card">
-                <p class="testimonial-text">The brand identity they created perfectly captured our essence. Every design element felt intentional and strategic. The team's empathetic approach made the collaboration process smooth and enjoyable.</p>
+                <p class="testimonial-text">The brand identity they created perfectly captured our essence. Every design
+                    element felt intentional and strategic. The team's empathetic approach made the collaboration
+                    process smooth and enjoyable.</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Michael Chen">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Michael Chen">
                     </div>
                     <div class="author-info">
                         <h4>Michael Chen</h4>
@@ -1641,12 +1742,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="testimonial-card">
-                <p class="testimonial-text">Their social media content increased our engagement by 300% in just three months. The videos they produced went viral and significantly boosted our brand awareness. Highly recommended!</p>
+                <p class="testimonial-text">Their social media content increased our engagement by 300% in just three
+                    months. The videos they produced went viral and significantly boosted our brand awareness. Highly
+                    recommended!</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Emma Rodriguez">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Emma Rodriguez">
                     </div>
                     <div class="author-info">
                         <h4>Emma Rodriguez</h4>
@@ -1662,17 +1766,18 @@
         <div class="footer-content">
             <div>
                 <div class="footer-logo">Swadharma<span>Creations</span></div>
-                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and
+                    strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
             </div>
-            
             <div class="footer-links">
-              <a href="C:\Users\chara\aifont.py\mobile version.html" class="footer-link">Our DNA</a>
-                    <a href="C:\Users\chara\aifont.py\sevvices.html" class="footer-link">Services</a>
-                    <a href="C:\Users\chara\aifont.py\work page.html" class="footer-link">Our Work</a>
-                     <a href="C:\Users\chara\aifont.py\aboutus.html" class="footer-link">About us</a>
-                    <a href="C:\Users\chara\aifont.py\contact us.html" class="footer-link">Contact</a>
+                <a href="{{ url_for('landing_page') }}" class="footer-link">Our DNA</a>
+                <a href="{{ url_for('services') }}" class="footer-link">Services</a>
+                <a href="{{ url_for('workpage') }}" class="footer-link">Our Work</a>
+                <a href="{{ url_for('aboutUS') }}" class="footer-link">About us</a>
+                <a href="{{ url_for('contactUS') }}" class="footer-link">Contact</a>
             </div>
-            
+
+
             <div class="footer-links">
                 <a href="#" class="footer-link">Instagram</a>
                 <a href="#" class="footer-link">LinkedIn</a>
@@ -1680,7 +1785,7 @@
                 <a href="tel:+1234567890" class="footer-link">Phone</a>
             </div>
         </div>
-        
+
         <div class="copyright">
             © 2023 Swadharma Creations. All rights reserved.
         </div>
@@ -1713,50 +1818,50 @@
                 navbar.classList.remove('scrolled');
             }
         });
-        
+
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const overlay = document.getElementById('overlay');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileNav.classList.toggle('active');
             overlay.classList.toggle('active');
             document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
         });
-        
+
         overlay.addEventListener('click', () => {
             mobileNav.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = '';
         });
-        
+
         // Service navigation
         const serviceBtns = document.querySelectorAll('.service-btn');
         const workSections = document.querySelectorAll('.work-section');
-        
+
         serviceBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
                 serviceBtns.forEach(b => b.classList.remove('active'));
-                
+
                 // Add active class to clicked button
                 btn.classList.add('active');
-                
+
                 // Hide all work sections
                 workSections.forEach(section => {
                     section.classList.remove('active');
                 });
-                
+
                 // Show the selected work section
                 const serviceId = btn.getAttribute('data-service');
                 document.getElementById(serviceId).classList.add('active');
-                
+
                 // Scroll to the top of the section
                 document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-        
+
         // Project data for photography section
         const projects = {
             "urban": {
@@ -1826,25 +1931,25 @@
         const lightboxClose = document.querySelector('.lightbox-close');
         const lightboxPrev = document.querySelector('.lightbox-prev');
         const lightboxNext = document.querySelector('.lightbox-next');
-        
+
         // State variables
         let currentProject = null;
         let currentIndex = 0;
         let currentMediaType = 'image'; // 'image' or 'video'
-        
+
         // Open lightbox with project images
         function openLightbox(projectId, index = 0) {
             currentProject = projectId;
             currentIndex = index;
-            
+
             const project = projects[projectId];
             lightboxTitle.textContent = project.title;
             updateLightboxImage();
-            
+
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-        
+
         // Open video lightbox
         function openVideoLightbox(videoSrc, title) {
             lightboxImg.style.display = 'none';
@@ -1852,58 +1957,58 @@
             lightboxVideo.src = videoSrc;
             lightboxTitle.textContent = title;
             lightboxCounter.textContent = '';
-            
+
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
+
             // Play the video
             setTimeout(() => {
                 lightboxVideo.play();
             }, 300);
-            
+
             currentMediaType = 'video';
         }
-        
+
         // Update lightbox image
         function updateLightboxImage() {
             lightboxVideo.style.display = 'none';
             lightboxImg.style.display = 'block';
-            
+
             const project = projects[currentProject];
             lightboxImg.src = project.images[currentIndex];
             lightboxCounter.textContent = `${currentIndex + 1}/${project.images.length}`;
-            
+
             currentMediaType = 'image';
         }
-        
+
         // Close lightbox
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
-            
+
             if (currentMediaType === 'video') {
                 lightboxVideo.pause();
             }
         }
-        
+
         // Navigate to next image
         function nextImage() {
             if (currentMediaType !== 'image') return;
-            
+
             const project = projects[currentProject];
             currentIndex = (currentIndex + 1) % project.images.length;
             updateLightboxImage();
         }
-        
+
         // Navigate to previous image
         function prevImage() {
             if (currentMediaType !== 'image') return;
-            
+
             const project = projects[currentProject];
             currentIndex = (currentIndex - 1 + project.images.length) % project.images.length;
             updateLightboxImage();
         }
-        
+
         // Event listeners for project cards
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', () => {
@@ -1911,7 +2016,7 @@
                 openLightbox(projectId);
             });
         });
-        
+
         // Event listeners for video play buttons
         document.querySelectorAll('.video-icon').forEach(icon => {
             icon.addEventListener('click', (e) => {
@@ -1921,11 +2026,11 @@
                 openVideoLightbox(video.querySelector('source').src, title);
             });
         });
-        
+
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxPrev.addEventListener('click', prevImage);
         lightboxNext.addEventListener('click', nextImage);
-        
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (lightbox.classList.contains('active')) {
@@ -1934,26 +2039,26 @@
                 if (e.key === 'ArrowRight') nextImage();
             }
         });
-        
+
         // Close lightbox when clicking outside image
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
-        
+
         // Filter projects by category (Photography section)
         const filterBtns = document.querySelectorAll('.filter-btn');
-        
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                
+
                 // Add active class to clicked button
                 btn.classList.add('active');
-                
+
                 // Get the category to filter by
                 const category = btn.getAttribute('data-category');
-                
+
                 // Show/hide projects based on category
                 document.querySelectorAll('.project-card').forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
@@ -1965,23 +2070,23 @@
                 });
             });
         });
-        
+
         // Filter for gallery sections (Videography, Editing, Design)
         document.querySelectorAll('.gallery-tabs').forEach(tabsContainer => {
             const tabs = tabsContainer.querySelectorAll('.gallery-tab');
             const galleryGrid = tabsContainer.nextElementSibling;
-            
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     // Remove active class from all tabs in this container
                     tabs.forEach(t => t.classList.remove('active'));
-                    
+
                     // Add active class to clicked tab
                     tab.classList.add('active');
-                    
+
                     // Get the category to filter by
                     const category = tab.getAttribute('data-category');
-                    
+
                     // Show/hide gallery items based on category
                     galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
                         const itemCategory = item.getAttribute('data-category');
@@ -1994,15 +2099,15 @@
                 });
             });
         });
-        
+
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -2014,4 +2119,5 @@
         });
     </script>
 </body>
+
 </html>

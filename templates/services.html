@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swadharma Creations | Services</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #161DA1;
+            --yellow: #FDEB10;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Consistent Page Container */
+        .page-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: var(--white);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            padding: 1rem 5%;
+        }
+
+        .nav-logo {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 101;
+        }
+
+        .nav-logo:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--yellow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-logo:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--black);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--blue);
+        }
+
+        .nav-link.active:after {
+            width: 100%;
+            background-color: var(--blue);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 101;
+            padding: 10px;
+        }
+
+        .mobile-menu-btn i {
+            font-size: 28px;
+            color: var(--black);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 100;
+            padding: 100px 40px 40px;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 1.5rem;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Main Content Area - Consistent across all pages */
+        .main-content {
+            flex: 1;
+            width: 100%;
+            padding-top: 80px;
+            /* Account for fixed navbar */
+        }
+
+        /* Hero Section - Can be customized per page but with consistent structure */
+        .hero {
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 20;
+        }
+
+        .hero-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            color: var(--blue);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-title span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .hero-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-top: 1.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+
+        .hero-highlight {
+            background-color: var(--yellow);
+            padding: 0 0.5rem;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.9;
+            z-index: 10;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element.circle {
+            width: clamp(80px, 25vw, 200px);
+            height: clamp(80px, 25vw, 200px);
+            border-radius: 50%;
+            background-color: var(--yellow);
+            top: 20%;
+            right: 10%;
+        }
+
+        .floating-element.square {
+            width: clamp(60px, 20vw, 150px);
+            height: clamp(60px, 20vw, 150px);
+            background-color: var(--blue);
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        /* Standard Section Styling - For consistent content sections */
+        .standard-section {
+            padding: 5rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--blue);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -0.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--yellow);
+        }
+
+        .section-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #555;
+        }
+
+        /* Card Container - For consistent card layouts */
+        .card-container {
+            display: grid;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Service Card Specific Styles */
+        .service-card {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            min-height: 450px;
+            perspective: 1000px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover .service-card-inner,
+        .service-card:focus-within .service-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card-front {
+            background-color: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card-back {
+            background: linear-gradient(135deg, var(--blue) 0%, #0d125e 100%);
+            transform: rotateY(180deg);
+            color: var(--white);
+        }
+
+        .service-icon {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+
+        .service-card-back .service-icon {
+            color: var(--yellow);
+        }
+
+        .service-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+
+        .service-card-back .service-title {
+            color: var(--white);
+        }
+
+        .service-desc {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card-back .service-desc {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .service-feature {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            font-size: 0.95rem;
+        }
+
+        .service-feature:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--blue);
+            font-weight: bold;
+        }
+
+        .service-card-back .service-feature:before {
+            color: var(--yellow);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 5rem 5%;
+            background-color: var(--blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--yellow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+
+        .process-step {
+            flex: 0 0 calc(25% - 2rem);
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 70px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .step-desc {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 5%;
+            background-color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+
+        .contact-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--yellow);
+            color: var(--black);
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid var(--yellow);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .contact-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--blue);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .contact-btn:hover {
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(253, 235, 16, 0.3);
+        }
+
+        .contact-btn:hover:before {
+            transform: translateX(0);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 5rem 5% 3rem;
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--yellow);
+        }
+
+        .footer-about {
+            max-width: 350px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.3rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--yellow);
+        }
+
+        .footer-link:hover:after {
+            width: 100%;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-link-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link-footer:hover {
+            transform: translateY(-4px);
+            background-color: var(--yellow);
+            color: var(--black);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step {
+                flex: 0 0 calc(50% - 2rem);
+            }
+
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1.2rem 5%;
+            }
+
+            .hero {
+                padding: 0 5%;
+                height: 70vh;
+                min-height: 500px;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-element.circle {
+                top: 15%;
+                right: 5%;
+            }
+
+            .floating-element.square {
+                bottom: 20%;
+                left: 5%;
+            }
+
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .service-card {
+                min-height: 400px;
+            }
+
+            .service-card-front,
+            .service-card-back {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <a href="#" class="nav-logo">Swadharma</a>
+            <div class="nav-links">
+                <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
+                <a href="{{ url_for('aboutUS') }}" class="nav-link">About us</a>
+                <a href="{{ url_for('services') }}" class="nav-link active">Services</a>
+                <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
+                <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
+            <a href="{{ url_for('aboutUS') }}" class="nav-link">About us</a>
+            <a href="{{ url_for('services') }}" class="nav-link active">Services</a>
+            <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
+            <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
+        </div>
+
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <!-- Floating elements -->
+                <div class="floating-elements">
+                    <div class="floating-element circle"></div>
+                    <div class="floating-element square"></div>
+                </div>
+
+                <div class="hero-content">
+                    <h1 class="hero-title"><span>Our Creative</span></h1>
+                    <h1 class="hero-title"><span>Services</span></h1>
+                    <p class="hero-subtitle">We blend <span class="hero-highlight">creative storytelling</span> with
+                        strategic design to build powerful brand experiences</p>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="standard-section" id="services">
+                <h2 class="section-title">What We Offer</h2>
+                <p class="section-subtitle">Comprehensive creative solutions tailored to elevate your brand</p>
+
+                <div class="card-container" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-front">
+                                <div class="service-icon">📸</div>
+                                <h3 class="service-title">Photography</h3>
+                                <p class="service-desc">Capturing moments that tell your brand's unique story with
+                                    visual impact and authenticity.</p>
+                                <ul class="service-features">
+                                    <li class="service-feature">Brand Storytelling Sessions</li>
+                                    <li class="service-feature">Product & Lifestyle Photography</li>
+                                    <li class="service-feature">Commercial & Editorial Shoots</li>
+                                </ul>
+                            </div>
+                            <div class="service-card-back">
+                                <div class="service-icon">📸</div>
+                                <h3 class="service-title">Photography</h3>
+                                <p class="service-desc">We capture authentic moments that tell your brand's unique story
+                                    with visual impact and authenticity.</p>
+                                <ul class="service-features">
+                                    <li class="service-feature">Professional lighting setup</li>
+                                    <li class="service-feature">Studio & location shoots</li>
+                                    <li class="service-feature">High-resolution image delivery</li>
+                                    <li class="service-feature">Post-production editing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-front">
+                                <div class="service-icon">🎬</div>
+                                <h3 class="service-title">Video Editing</h3>
+                                <p class="service-desc">Crafting compelling narratives through seamless editing, motion
+                                    design, and post-production.</p>
+                                <ul class="service-features">
+                                    <li class="service-feature">Commercial & Promotional Videos</li>
+                                    <li class="service-feature">Social Media Content Creation</li>
+                                    <li class="service-feature">Motion Graphics & Animation</li>
+                                </ul>
+                            </div>
+                            <div class="service-card-back">
+                                <div class="service-icon">🎬</div>
+                                <h3 class="service-title">Video Editing</h3>
+                                <p class="service-desc">We transform raw footage into compelling stories with seamless
+                                    editing and professional post-production.</p>
+                                <ul class="service-features">
+                                    <li class="service-feature">Color grading & correction</li>
+                                    <li class="service-feature">Motion graphics & animation</li>
+                                    <li class="service-feature">Sound design & mixing</li>
+                                    <li class="service-feature">Multi-platform optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-front">
+                                <div class="service-icon">🎨</div>
+                                <h3 class="service-title">Graphic Design</h3>
+                                <p class="service-desc">Creating visually stunning designs that communicate your brand
+                                    identity across all touchpoints.</p>
+                                <ul class="service-features">
+                                    <li class="service-feature">Brand Identity Systems</li>
+                                    <li class="service-feature">Marketing & Advertising Materials</li>
+                                    <li class="service-feature">Packaging & Print Design</li>
+                                </ul>
+                            </div>
+                            <div class="service-card-back">
+                                <div class="service-icon">🎨</div>
+                                <h3 class="service-title">Graphic Design</h3>
+                                <p class="service-desc">We craft compelling visual identities that communicate your
+                                    brand essence across all platforms.</p>
+                                <ul class="service-features">
+                                    <li class="service-feature">Logo & identity systems</li>
+                                    <li class="service-feature">Print & digital collateral</li>
+                                    <li class="service-feature">Packaging & merchandise</li>
+                                    <li class="service-feature">Brand guidelines</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Section -->
+            <section class="process-section" id="process">
+                <h2 class="process-title">Our Creative Process</h2>
+                <div class="process-container">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Discover</h3>
+                        <p class="step-desc">We begin by understanding your brand, goals, and audience through in-depth
+                            research.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Design</h3>
+                        <p class="step-desc">Our creative team develops concepts and visual solutions aligned with your
+                            objectives.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Develop</h3>
+                        <p class="step-desc">We refine and execute the chosen direction with precision and attention to
+                            detail.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Deliver</h3>
+                        <p class="step-desc">Final assets are delivered with guidelines for consistent implementation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section" id="contact">
+                <h2 class="contact-title">Ready to Elevate Your Brand?</h2>
+                <p class="contact-subtitle">Let's collaborate to create something extraordinary together</p>
+                <a href="{{ url_for('contactUS') }}" class="contact-btn">Start Your Project</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Swadharma<span>Creations</span></div>
+                    <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and
+                        strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="{{ url_for('landing_page') }}" class="footer-link">Our DNA</a>
+                    <a href="{{ url_for('services') }}" class="footer-link">Services</a>
+                    <a href="{{ url_for('workpage') }}" class="footer-link">Our Work</a>
+                    <a href="{{ url_for('aboutUS') }}" class="footer-link">About us</a>
+                    <a href="{{ url_for('contactUS') }}" class="footer-link">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="https://instagram.com/swadharmacreations" class="footer-link">Instagram</a>
+                    <a href="https://linkedin.com/company/swadharmacreations" class="footer-link">LinkedIn</a>
+                    <a href="mailto:swadharamcreations@gmail.com" class="footer-link">Email</a>
+                    <a href="tel:+1234567890" class="footer-link">Phone</a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2023 Swadharma Creations. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Hero text animation
+        const heroTitleSpans = document.querySelectorAll('.hero-title span');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+
+        setTimeout(() => {
+            heroTitleSpans.forEach((span, index) => {
+                setTimeout(() => {
+                    span.style.transform = 'translateY(0)';
+                    span.style.opacity = '1';
+                }, 300 * index);
+            });
+
+            setTimeout(() => {
+                heroSubtitle.style.transform = 'translateY(0)';
+                heroSubtitle.style.opacity = '1';
+            }, 900);
+        }, 500);
+
+        // Service card hover effect
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        // Detect touch devices
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+
+        serviceCards.forEach(card => {
+            if (!isTouchDevice) {
+                // Desktop - hover effect
+                card.addEventListener('mouseenter', () => {
+                    card.querySelector('.service-card-inner').style.transform = 'rotateY(180deg)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.querySelector('.service-card-inner').style.transform = 'rotateY(0deg)';
+                });
+            } else {
+                // Mobile - click effect
+                card.addEventListener('click', () => {
+                    const inner = card.querySelector('.service-card-inner');
+                    inner.style.transform = inner.style.transform === 'rotateY(180deg)'
+                        ? 'rotateY(0deg)'
+                        : 'rotateY(180deg)';
+                });
+            }
+        });
+
+        // Process step animation
+        const processSteps = document.querySelectorAll('.process-step');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        processSteps.forEach(step => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(30px)';
+            step.style.transition = 'all 0.6s ease-out';
+            observer.observe(step);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+
+            // Change icon based on menu state
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

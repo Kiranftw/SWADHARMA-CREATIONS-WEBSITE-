@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Swadharma Creations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -15,13 +18,13 @@
             --light-blue: #f0f1ff;
             --light-gray: #f8f9fa;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Roboto', sans-serif;
             color: var(--black);
@@ -29,7 +32,7 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-        
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -42,9 +45,9 @@
             align-items: center;
             z-index: 100;
             background-color: var(--white);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .nav-logo {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -54,7 +57,7 @@
             letter-spacing: 1px;
             position: relative;
         }
-        
+
         .nav-logo:after {
             content: '';
             position: absolute;
@@ -67,17 +70,17 @@
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .nav-logo:hover:after {
             transform: scaleX(1);
             transform-origin: left;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 2rem;
         }
-        
+
         .nav-link {
             font-family: 'Roboto', sans-serif;
             font-weight: 500;
@@ -87,7 +90,7 @@
             position: relative;
             padding: 0.5rem 0.2rem;
         }
-        
+
         .nav-link:after {
             content: '';
             position: absolute;
@@ -98,18 +101,18 @@
             background-color: var(--yellow);
             transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .nav-link:hover:after {
             width: 100%;
         }
-        
+
         /* Mobile Navigation */
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+
         /* Hero Section */
         .contact-hero {
             height: 70vh;
@@ -122,7 +125,7 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
             margin-top: 80px;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
@@ -130,7 +133,7 @@
             margin: 0 auto;
             text-align: center;
         }
-        
+
         .hero-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -140,13 +143,13 @@
             letter-spacing: -0.03em;
             color: var(--blue);
         }
-        
+
         .hero-highlight {
             background-color: var(--yellow);
             padding: 0 0.5rem;
             display: inline-block;
         }
-        
+
         .hero-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -155,7 +158,7 @@
             margin: 0 auto;
             max-width: 600px;
         }
-        
+
         /* Floating Elements */
         .floating-element {
             position: absolute;
@@ -163,7 +166,7 @@
             opacity: 0.9;
             mix-blend-mode: multiply;
         }
-        
+
         .floating-element.circle {
             width: 200px;
             height: 200px;
@@ -173,7 +176,7 @@
             left: 10%;
             animation: float 8s ease-in-out infinite;
         }
-        
+
         .floating-element.square {
             width: 150px;
             height: 150px;
@@ -183,42 +186,49 @@
             animation: float 10s ease-in-out infinite;
             animation-delay: 1s;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(5deg);
+            }
         }
-        
+
         /* Contact Section */
         .contact-section {
             padding: 5rem 10%;
             background-color: var(--light-gray);
         }
-        
+
         .contact-container {
             display: flex;
             gap: 4rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .contact-form-container {
             flex: 1;
             background-color: var(--white);
             padding: 3rem;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             position: relative;
             z-index: 2;
         }
-        
+
         .contact-info-container {
             flex: 1;
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
         }
-        
+
         .contact-info-card {
             background: linear-gradient(135deg, var(--blue) 0%, #0d125e 100%);
             color: var(--white);
@@ -229,12 +239,12 @@
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(22, 29, 161, 0.1);
         }
-        
+
         .contact-info-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(22, 29, 161, 0.15);
         }
-        
+
         .contact-info-card:before {
             content: '';
             position: absolute;
@@ -246,11 +256,11 @@
             transform: translateX(-100%);
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .contact-info-card:hover:before {
             transform: translateX(0);
         }
-        
+
         .contact-info-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -260,12 +270,12 @@
             align-items: center;
             gap: 1rem;
         }
-        
+
         .contact-info-title i {
             color: var(--yellow);
             font-size: 1.6rem;
         }
-        
+
         .contact-info-content {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
@@ -273,56 +283,56 @@
             line-height: 1.7;
             margin-bottom: 1.2rem;
         }
-        
+
         .contact-info-details {
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
             margin-top: 1.5rem;
         }
-        
+
         .contact-info-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
         }
-        
+
         .contact-info-item i {
             color: var(--yellow);
             font-size: 1.2rem;
             min-width: 25px;
             padding-top: 4px;
         }
-        
+
         .contact-info-item span {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             font-size: 1.05rem;
             line-height: 1.5;
         }
-        
+
         .contact-info-item a {
             color: var(--white);
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .contact-info-item a:hover {
             color: var(--yellow);
         }
-        
+
         .map-container {
             height: 280px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             background-color: var(--light-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
         }
-        
+
         .map-overlay {
             position: absolute;
             top: 0;
@@ -340,18 +350,18 @@
             opacity: 0;
             transition: all 0.4s ease;
         }
-        
+
         .map-container:hover .map-overlay {
             opacity: 1;
         }
-        
+
         .map-overlay-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
             font-size: 1.6rem;
             margin-bottom: 0.8rem;
         }
-        
+
         .map-overlay-text {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
@@ -360,7 +370,7 @@
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
-        
+
         .map-btn {
             display: inline-block;
             background-color: var(--yellow);
@@ -373,12 +383,12 @@
             border-radius: 50px;
             transition: all 0.3s ease;
         }
-        
+
         .map-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
         }
-        
+
         /* Form Styling */
         .form-title {
             font-family: 'Commissioner', sans-serif;
@@ -387,7 +397,7 @@
             color: var(--blue);
             margin-bottom: 0.8rem;
         }
-        
+
         .form-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
@@ -396,12 +406,12 @@
             margin-bottom: 2rem;
             line-height: 1.6;
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
             position: relative;
         }
-        
+
         .form-label {
             display: block;
             font-family: 'Roboto', sans-serif;
@@ -410,7 +420,7 @@
             color: #444;
             margin-bottom: 0.6rem;
         }
-        
+
         .form-input {
             width: 100%;
             padding: 1rem 1.2rem;
@@ -421,18 +431,18 @@
             transition: all 0.3s ease;
             background-color: #f9f9ff;
         }
-        
+
         .form-input:focus {
             outline: none;
             border-color: var(--blue);
             box-shadow: 0 0 0 3px rgba(22, 29, 161, 0.08);
         }
-        
+
         textarea.form-input {
             min-height: 140px;
             resize: vertical;
         }
-        
+
         .submit-btn {
             display: inline-block;
             background-color: var(--yellow);
@@ -452,7 +462,7 @@
             width: 100%;
             margin-top: 0.5rem;
         }
-        
+
         .submit-btn:before {
             content: '';
             position: absolute;
@@ -465,24 +475,24 @@
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: -1;
         }
-        
+
         .submit-btn:hover {
             color: var(--white);
             transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(253, 235, 16, 0.25);
         }
-        
+
         .submit-btn:hover:before {
             transform: translateX(0);
         }
-        
+
         /* Social Links */
         .social-links {
             display: flex;
             gap: 1.2rem;
             margin-top: 1.8rem;
         }
-        
+
         .social-link {
             display: flex;
             align-items: center;
@@ -496,22 +506,22 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-link:hover {
             transform: translateY(-4px);
             background-color: var(--yellow);
             color: var(--black);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
-        
-      /* Footer */
+
+        /* Footer */
         .footer {
             padding: 5rem 5% 3rem;
             background-color: var(--black);
             color: var(--white);
             position: relative;
         }
-        
+
         .footer-content {
             display: flex;
             justify-content: space-between;
@@ -520,7 +530,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .footer-logo {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -528,11 +538,11 @@
             color: var(--white);
             margin-bottom: 1.5rem;
         }
-        
+
         .footer-logo span {
             color: var(--yellow);
         }
-        
+
         .footer-about {
             max-width: 350px;
             font-family: 'Roboto', sans-serif;
@@ -541,13 +551,13 @@
             opacity: 0.8;
             line-height: 1.6;
         }
-        
+
         .footer-links {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-        
+
         .footer-link {
             color: var(--white);
             text-decoration: none;
@@ -558,7 +568,7 @@
             padding: 0.3rem 0;
             transition: all 0.3s ease;
         }
-        
+
         .footer-link:after {
             content: '';
             position: absolute;
@@ -569,19 +579,19 @@
             background-color: var(--yellow);
             transition: width 0.3s ease;
         }
-        
+
         .footer-link:hover {
             color: var(--yellow);
         }
-        
+
         .footer-link:hover:after {
             width: 100%;
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 0.9rem;
@@ -589,7 +599,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .social-link-footer {
             display: flex;
             align-items: center;
@@ -603,32 +613,169 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-link-footer:hover {
             transform: translateY(-4px);
             background-color: var(--yellow);
             color: var(--black);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
-        
-        
+
+        /* Flash messages */
+        .flash-messages {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .flash-message {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .flash-success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .flash-error {
+            background-color: #f44336;
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Acknowledgement Message */
+        .acknowledgement-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .acknowledgement-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .acknowledgement-icon {
+            font-size: 4rem;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            animation: iconBounce 0.6s ease;
+        }
+
+        .acknowledgement-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+
+        .acknowledgement-text {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .acknowledgement-btn {
+            display: inline-block;
+            background-color: var(--yellow);
+            color: var(--black);
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .acknowledgement-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes iconBounce {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
         @media (max-width: 380px) {
             .hero-title {
                 font-size: 1.7rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 0.9rem;
             }
-            
+
             .form-title {
                 font-size: 1.4rem;
             }
-            
+
             .contact-info-title {
                 font-size: 1.2rem;
             }
-            
+
             .social-link {
                 width: 38px;
                 height: 38px;
@@ -637,31 +784,55 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">Swadharma</a>
         <div class="nav-links" id="navLinks">
-           <a href="C:\Users\chara\aifont.py\mobile version.html" class="nav-link">Brand DNA</a>
-            <a href="C:\Users\chara\aifont.py\aboutus.html" class="nav-link">About us</a>
-            <a href="C:\Users\chara\aifont.py\sevvices.html" class="nav-link">Services</a>
-            <a href="C:\Users\chara\aifont.py\work page.html" class="nav-link">Our work</a>
-            <a href="C:\Users\chara\aifont.py\contact us.html" class="nav-link">Contact</a>
+            <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
+            <a href="{{ url_for('aboutUS') }}" class="nav-link">About us</a>
+            <a href="{{ url_for('services') }}" class="nav-link">Services</a>
+            <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
+            <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
         </div>
+
         <div class="mobile-toggle" id="mobileToggle">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Acknowledgement Message -->
+    <div class="acknowledgement-overlay" id="ackOverlay"></div>
+    <div class="acknowledgement-message" id="ackMessage">
+        <i class="fas fa-check-circle acknowledgement-icon"></i>
+        <h2 class="acknowledgement-title">Message Sent Successfully!</h2>
+        <p class="acknowledgement-text">Thank you for reaching out to us. We've received your message and will get back
+            to you within 24 hours.</p>
+        <button class="acknowledgement-btn" id="ackButton">Got It</button>
+    </div>
 
     <!-- Hero Section with Floating Elements -->
     <section class="contact-hero">
         <!-- Floating elements now directly in the hero container -->
         <div class="floating-element circle"></div>
         <div class="floating-element square"></div>
-        
+
         <div class="hero-content">
             <h1 class="hero-title">Let's <span class="hero-highlight">Connect</span></h1>
-            <p class="hero-subtitle">We'd love to hear about your project and explore how we can bring your vision to life</p>
+            <p class="hero-subtitle">We'd love to hear about your project and explore how we can bring your vision to
+                life</p>
         </div>
     </section>
 
@@ -670,38 +841,44 @@
         <div class="contact-container">
             <div class="contact-form-container">
                 <h2 class="form-title">Send Us a Message</h2>
-                <p class="form-subtitle">Have a project in mind? Fill out the form and we'll get back to you within 24 hours.</p>
-                
-                <form id="contactForm">
+                <p class="form-subtitle">Have a project in mind? Fill out the form and we'll get back to you within 24
+                    hours.</p>
+
+                <form id="contactForm" method="POST" action="/contactus">
                     <div class="form-group">
                         <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name"
+                            required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email"
+                            required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" class="form-input" placeholder="What is this regarding?" required>
+                        <input type="text" id="subject" name="subject" class="form-input"
+                            placeholder="What is this regarding?" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message" class="form-label">Your Message</label>
-                        <textarea id="message" class="form-input" placeholder="Tell us about your project..." required></textarea>
+                        <textarea id="message" name="message" class="form-input"
+                            placeholder="Tell us about your project..." required></textarea>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
-            
+
             <div class="contact-info-container">
                 <div class="contact-info-card">
                     <h3 class="contact-info-title"><i class="fas fa-map-marker-alt"></i> Our Studio</h3>
-                    <p class="contact-info-content">We're located in the creative district, surrounded by inspiration and innovation.</p>
-                    
+                    <p class="contact-info-content">We're located in the creative district, surrounded by inspiration
+                        and innovation.</p>
+
                     <div class="contact-info-details">
                         <div class="contact-info-item">
                             <i class="fas fa-building"></i>
@@ -713,11 +890,12 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-info-card">
                     <h3 class="contact-info-title"><i class="fas fa-envelope"></i> Get In Touch</h3>
-                    <p class="contact-info-content">Prefer to reach out directly? Here's how you can contact our team.</p>
-                    
+                    <p class="contact-info-content">Prefer to reach out directly? Here's how you can contact our team.
+                    </p>
+
                     <div class="contact-info-details">
                         <div class="contact-info-item">
                             <i class="fas fa-envelope"></i>
@@ -732,7 +910,7 @@
                             <span>Mon-Fri: 9am - 6pm</span>
                         </div>
                     </div>
-                    
+
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -740,14 +918,15 @@
                         <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="map-container">
                     <!-- Map placeholder -->
                     <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--blue);"></i>
-                    
+
                     <div class="map-overlay">
                         <h3 class="map-overlay-title">Visit Our Studio</h3>
-                        <p class="map-overlay-text">We'd love to welcome you to our creative space. Schedule a visit today!</p>
+                        <p class="map-overlay-text">We'd love to welcome you to our creative space. Schedule a visit
+                            today!</p>
                         <a href="#" class="map-btn">Get Directions</a>
                     </div>
                 </div>
@@ -760,19 +939,20 @@
         <div class="footer-content">
             <div class="footer-col">
                 <div class="footer-logo">Swadharma<span>Creations</span></div>
-                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and
+                    strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
             </div>
-            
+
             <div class="footer-col">
                 <div class="footer-links">
-                    <a href="C:\Users\chara\aifont.py\mobile version.html" class="footer-link">Our DNA</a>
-                    <a href="C:\Users\chara\aifont.py\sevvices.html" class="footer-link">Services</a>
-                    <a href="C:\Users\chara\aifont.py\work page.html" class="footer-link">Our Work</a>
-                     <a href="C:\Users\chara\aifont.py\aboutus.html" class="footer-link">About us</a>
-                    <a href="C:\Users\chara\aifont.py\contact us.html" class="footer-link">Contact</a>
+                    <a href="{{ url_for('landing_page') }}" class="footer-link">Our DNA</a>
+                    <a href="{{ url_for('services') }}" class="footer-link">Services</a>
+                    <a href="{{ url_for('workpage') }}" class="footer-link">Our Work</a>
+                    <a href="{{ url_for('aboutUS') }}" class="footer-link">About us</a>
+                    <a href="{{ url_for('contactUS') }}" class="footer-link">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-col">
                 <div class="footer-links">
                     <a href="https://instagram.com/swadharmacreations" class="footer-link">Instagram</a>
@@ -782,20 +962,47 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
             © 2023 Swadharma Creations. All rights reserved.
         </div>
     </footer>
 
     <script>
-        // Simple form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
+            e.preventDefault();  // keep it, but send manually
+
+            const formData = new FormData(this);
+
+            const response = await fetch("/contactus", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                // Show acknowledgement
+                document.getElementById('ackOverlay').style.display = 'block';
+                document.getElementById('ackMessage').style.display = 'block';
+                this.reset();
+            } else {
+                alert("❌ Failed to send message");
+            }
         });
-        
+
+
+        // Close acknowledgement message
+        document.getElementById('ackButton').addEventListener('click', function () {
+            document.getElementById('ackOverlay').style.display = 'none';
+            document.getElementById('ackMessage').style.display = 'none';
+        });
+
+        // Close acknowledgement when clicking outside
+        document.getElementById('ackOverlay').addEventListener('click', function () {
+            document.getElementById('ackOverlay').style.display = 'none';
+            document.getElementById('ackMessage').style.display = 'none';
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -807,14 +1014,14 @@
                 navbar.style.padding = '1.5rem 5%';
             }
         });
-        
+
         // Mobile navigation toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-        
+
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             // Toggle icon between bars and X
             const icon = mobileToggle.querySelector('i');
             if (icon.classList.contains('fa-bars')) {
@@ -825,7 +1032,7 @@
                 icon.classList.add('fa-bars');
             }
         });
-        
+
         // Close mobile menu when clicking a link
         const navItems = document.querySelectorAll('.nav-link');
         navItems.forEach(item => {
@@ -835,6 +1042,17 @@
                 mobileToggle.querySelector('i').classList.add('fa-bars');
             });
         });
+
+        // Auto-hide flash messages after 5 seconds
+        setTimeout(() => {
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(message => {
+                message.style.opacity = '0';
+                message.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => message.remove(), 500);
+            });
+        }, 5000);
     </script>
 </body>
+
 </html>
