@@ -1,2 +1,5 @@
 .env
-venv
+venv/
+service-account.json
+service-account.json
+gen-lang-client-0569515639-3d363533f5c5.json
