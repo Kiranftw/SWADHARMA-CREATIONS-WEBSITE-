@@ -1,14 +1,63 @@
-from flask import Flask, request, render_template, flash, redirect, url_for
+from flask import Flask, request, render_template, flash
 import gspread
 from google.oauth2.service_account import Credentials
 from gspread.exceptions import WorksheetNotFound
 import datetime
+import smtplib
+import os
+import sqlite3
+import logging
+from dotenv import load_dotenv, find_dotenv
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
+load_dotenv(find_dotenv())
 app = Flask(__name__)
-app.secret_key = "super_secret_key_12345"
+app.secret_key = os.getenv("SECRET_KEY")
 
-SHEET_ID = "10UNhMkGQkgRQlGgmQ7H5doN_sG7zJP8TxVQ21r63GVg"
-SHEET_NAME = "SWDHARMACREATIONS"
+SHEET_ID = os.getenv("SHEET_ID")
+SHEET_NAME = os.getenv("SHEET_NAME")
+SERVICE_ACCOUNT_FILE = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+YOUR_EMAIL = os.getenv("YOUR_EMAIL")
+APP_PASSWORD = os.getenv("APP_PASSWORD")
+
+LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+logging.basicConfig(
+    level=logging.INFO,
+    format=LOG_FORMAT,
+    handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+    ]
+)
+LOGGER = logging.getLogger()
+
+def init_db():
+    conn = sqlite3.connect("contacts.db")
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS contacts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp TEXT,
+            name TEXT,
+            email TEXT,
+            subject TEXT,
+            message TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+    LOGGER.info("DATABASE INITIALIZED")
+
+def save_to_db(timestamp, name, email, subject, message):
+    conn = sqlite3.connect("contacts.db")
+    c = conn.cursor()
+    c.execute("INSERT INTO contacts (timestamp, name, email, subject, message) VALUES (?, ?, ?, ?, ?)",
+              (timestamp, name, email, subject, message))
+    conn.commit()
+    conn.close()
+    LOGGER.info(" DATA SAVED TO SQLITE DB")
+
 def get_or_create_worksheet(sheet, worksheet_name):
     try:
         return sheet.worksheet(worksheet_name)
@@ -21,7 +70,7 @@ def write_to_sheet(data):
         "https://www.googleapis.com/auth/drive"
     ]
     credentials = Credentials.from_service_account_file(
-        "gen-lang-client-0569515639-3d363533f5c5.json",
+        SERVICE_ACCOUNT_FILE,
         scopes=scopes
     )
     client = gspread.authorize(credentials)
@@ -29,46 +78,35 @@ def write_to_sheet(data):
     sheet = client.open_by_key(SHEET_ID)
     worksheet = get_or_create_worksheet(sheet, SHEET_NAME)
     worksheet.append_row(data)
-
-@app.before_request
-def log_request_info():
-    print("➡️ Method:", request.method)
-    print("➡️ Path:", request.path)
-    print("➡️ Form Data:", request.form)
-
-@app.route("/")
-def landing_page():
-    return render_template("mainpage.html")
-
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+    LOGGER.info("DATA WRITTEN TO GOOGLE SHEETS")
 
 def send_email(name, sender_email, subject, message):
-    # Email account credentials
-    YOUR_EMAIL = "udaykiranftw@gmail.com"
-    APP_PASSWORD = "kjac hucn cbca azki"  # Use App Password, not your Gmail password
-
-    # Create message
     msg = MIMEMultipart()
     msg['From'] = YOUR_EMAIL
-    msg['To'] = YOUR_EMAIL  # Or any recipient you want
+    msg['To'] = YOUR_EMAIL
     msg['Subject'] = f"New Contact Form Submission: {subject}"
 
     body = f"Name: {name}\nEmail: {sender_email}\nSubject: {subject}\nMessage:\n{message}"
     msg.attach(MIMEText(body, 'plain'))
 
-    # Connect to Gmail SMTP server
     try:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login(YOUR_EMAIL, APP_PASSWORD)
         server.send_message(msg)
         server.quit()
-        print("✅ Email sent successfully!")
+        LOGGER.info("EMAIL SENT SUCCESSFULLY")
     except Exception as e:
-        print("❌ ERROR:", e)
+        LOGGER.error(f"❌ EMAIL ERROR: {e}")
 
+# ------------------ ROUTES ------------------
+@app.before_request
+def log_request_info():
+    LOGGER.info(f"➡️ REQUEST | METHOD: {request.method} | PATH: {request.path} | FORM: {dict(request.form)}")
+
+@app.route("/")
+def landing_page():
+    return render_template("mainpage.html")
 
 @app.route("/contactus", methods=["GET", "POST"])
 def contactUS():
@@ -77,18 +115,18 @@ def contactUS():
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
-        TIMESPAMP = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        print("🔥 Contact form submission:")
-        print(f"Name: {name}, Email: {email}, Subject: {subject}, Message: {message}")
+        LOGGER.info(f"🔥 CONTACT FORM SUBMISSION | Name: {name}, Email: {email}, Subject: {subject}")
 
         try:
-            write_to_sheet([name, email, subject, message, TIMESPAMP])
+            write_to_sheet([timestamp, name, email, subject, message])
+            save_to_db(timestamp, name, email, subject, message)
             send_email(name, email, subject, message)
-            print("✅ Data written to Google Sheets and email sent successfully!")
+
             flash("Your message has been sent successfully!", "success")
         except Exception as e:
-            print(f"❌ Error writing to Google Sheets: {e}")
+            LOGGER.error(f"❌ ERROR HANDLING CONTACT FORM: {e}")
             flash("Something went wrong. Please try again later.", "error")
 
         return render_template("contactus.html", success=True)
@@ -108,4 +146,5 @@ def workpage():
     return render_template("workpage.html")
 
 if __name__ == "__main__":
+    init_db()
     app.run(debug=True)

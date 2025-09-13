@@ -1,0 +1,25 @@
+2025-09-13 16:44:13,533 - INFO - DATABASE INITIALIZED
+2025-09-13 16:44:13,542 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-13 16:44:13,542 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-13 16:44:13,544 - INFO -  * Restarting with stat
+2025-09-13 16:44:13,878 - INFO - DATABASE INITIALIZED
+2025-09-13 16:44:13,887 - WARNING -  * Debugger is active!
+2025-09-13 16:44:13,888 - INFO -  * Debugger PIN: 668-562-904
+2025-09-13 16:44:17,107 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-09-13 16:44:17,128 - INFO - 127.0.0.1 - - [13/Sep/2025 16:44:17] "GET / HTTP/1.1" 200 -
+2025-09-13 16:44:17,534 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /favicon.ico | FORM: {}
+2025-09-13 16:44:17,535 - INFO - 127.0.0.1 - - [13/Sep/2025 16:44:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 16:44:19,769 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-09-13 16:44:19,780 - INFO - 127.0.0.1 - - [13/Sep/2025 16:44:19] "GET /contactus HTTP/1.1" 200 -
+2025-09-13 16:45:14,052 - INFO - ➡️ REQUEST | METHOD: POST | PATH: /contactus | FORM: {'name': 'RAGHUPATRUNI SAI UDAY KIRAN', 'email': 'raghupatruniprasanthi2000@gmail.com', 'subject': 'I WANT TOU GUYS TO MAKE A WEDDING VIDEO OF YESHWANTH & PRAVEEN', 'message': 'THIS IS TEST NO 6'}
+2025-09-13 16:45:14,052 - INFO - 🔥 CONTACT FORM SUBMISSION | Name: RAGHUPATRUNI SAI UDAY KIRAN, Email: raghupatruniprasanthi2000@gmail.com, Subject: I WANT TOU GUYS TO MAKE A WEDDING VIDEO OF YESHWANTH & PRAVEEN
+2025-09-13 16:45:16,243 - INFO - DATA WRITTEN TO GOOGLE SHEETS
+2025-09-13 16:45:16,250 - INFO -  DATA SAVED TO SQLITE DB
+2025-09-13 16:45:19,378 - INFO - ✅ EMAIL SENT SUCCESSFULLY
+2025-09-13 16:45:19,379 - INFO - 127.0.0.1 - - [13/Sep/2025 16:45:19] "POST /contactus HTTP/1.1" 200 -
+2025-09-13 16:45:35,295 - INFO -  * Detected change in '/home/kiranftw/SWADHARMA-CREATIONS-WEBSITE-/backend.py', reloading
+2025-09-13 16:45:35,352 - INFO -  * Restarting with stat
+2025-09-13 16:45:35,594 - INFO - DATABASE INITIALIZED
+2025-09-13 16:45:35,601 - WARNING -  * Debugger is active!
+2025-09-13 16:45:35,602 - INFO -  * Debugger PIN: 668-562-904

@@ -1,5 +1,8 @@
-.env
+service-account.json
+service-account.json
+/home/kiranftw/SWADHARMA-CREATIONS-WEBSITE-/swadharma-contactform-972334a9d413.json
 venv/
-service-account.json
-service-account.json
-gen-lang-client-0569515639-3d363533f5c5.json
+.env
+*.json
+__pycache__/
+*.pyc
