@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +18,13 @@
             --white: #FFFFFF;
         }
 
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
 
         body {
             font-family: 'Roboto', sans-serif;
@@ -31,6 +34,7 @@
             line-height: 1.6;
         }
 
+
         /* Consistent Page Container */
         .page-container {
             width: 100%;
@@ -38,6 +42,7 @@
             display: flex;
             flex-direction: column;
         }
+
 
         /* Navigation */
         .navbar {
@@ -54,10 +59,12 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+
         .navbar.scrolled {
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
             padding: 1rem 5%;
         }
+
 
         .nav-logo {
             font-family: 'Commissioner', sans-serif;
@@ -69,6 +76,7 @@
             position: relative;
             z-index: 101;
         }
+
 
         .nav-logo:after {
             content: '';
@@ -83,15 +91,18 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+
         .nav-logo:hover:after {
             transform: scaleX(1);
             transform-origin: left;
         }
 
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
         }
+
 
         .nav-link {
             font-family: 'Roboto', sans-serif;
@@ -102,6 +113,7 @@
             position: relative;
             padding: 0.5rem 0;
         }
+
 
         .nav-link:after {
             content: '';
@@ -114,18 +126,22 @@
             transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+
         .nav-link:hover:after {
             width: 100%;
         }
+
 
         .nav-link.active {
             color: var(--blue);
         }
 
+
         .nav-link.active:after {
             width: 100%;
             background-color: var(--blue);
         }
+
 
         /* Mobile Menu Button */
         .mobile-menu-btn {
@@ -137,10 +153,12 @@
             padding: 10px;
         }
 
+
         .mobile-menu-btn i {
             font-size: 28px;
             color: var(--black);
         }
+
 
         /* Mobile Menu */
         .mobile-menu {
@@ -158,13 +176,16 @@
             gap: 2rem;
         }
 
+
         .mobile-menu.active {
             right: 0;
         }
 
+
         .mobile-menu .nav-link {
             font-size: 1.5rem;
         }
+
 
         .menu-overlay {
             position: fixed;
@@ -179,10 +200,12 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+
         .menu-overlay.active {
             opacity: 1;
             visibility: visible;
         }
+
 
         /* Main Content Area - Consistent across all pages */
         .main-content {
@@ -191,6 +214,7 @@
             padding-top: 80px;
             /* Account for fixed navbar */
         }
+
 
         /* Hero Section - Can be customized per page but with consistent structure */
         .hero {
@@ -206,10 +230,12 @@
             text-align: center;
         }
 
+
         .hero-content {
             position: relative;
             z-index: 20;
         }
+
 
         .hero-title {
             font-family: 'Commissioner', sans-serif;
@@ -225,11 +251,13 @@
             text-align: center;
         }
 
+
         .hero-title span {
             display: inline-block;
             transform: translateY(100%);
             opacity: 0;
         }
+
 
         .hero-subtitle {
             font-family: 'Roboto', sans-serif;
@@ -243,10 +271,12 @@
             color: #555;
         }
 
+
         .hero-highlight {
             background-color: var(--yellow);
             padding: 0 0.5rem;
         }
+
 
         /* Floating Elements */
         .floating-elements {
@@ -259,12 +289,14 @@
             pointer-events: none;
         }
 
+
         .floating-element {
             position: absolute;
             opacity: 0.9;
             z-index: 10;
             animation: float 6s ease-in-out infinite;
         }
+
 
         .floating-element.circle {
             width: clamp(80px, 25vw, 200px);
@@ -275,6 +307,7 @@
             right: 10%;
         }
 
+
         .floating-element.square {
             width: clamp(60px, 20vw, 150px);
             height: clamp(60px, 20vw, 150px);
@@ -284,17 +317,21 @@
             animation-delay: 1s;
         }
 
+
         @keyframes float {
+
 
             0%,
             100% {
                 transform: translateY(0) rotate(0deg);
             }
 
+
             50% {
                 transform: translateY(-20px) rotate(5deg);
             }
         }
+
 
         /* Standard Section Styling - For consistent content sections */
         .standard-section {
@@ -302,6 +339,7 @@
             position: relative;
             overflow: hidden;
         }
+
 
         .section-title {
             font-family: 'Commissioner', sans-serif;
@@ -312,6 +350,7 @@
             color: var(--blue);
             position: relative;
         }
+
 
         .section-title:after {
             content: '';
@@ -324,6 +363,7 @@
             background-color: var(--yellow);
         }
 
+
         .section-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -334,6 +374,7 @@
             color: #555;
         }
 
+
         /* Card Container - For consistent card layouts */
         .card-container {
             display: grid;
@@ -341,6 +382,7 @@
             max-width: 1400px;
             margin: 0 auto;
         }
+
 
         /* Service Card Specific Styles */
         .service-card {
@@ -353,6 +395,7 @@
             margin: 0 auto;
         }
 
+
         .service-card-inner {
             position: relative;
             width: 100%;
@@ -362,10 +405,12 @@
             transform-style: preserve-3d;
         }
 
+
         .service-card:hover .service-card-inner,
         .service-card:focus-within .service-card-inner {
             transform: rotateY(180deg);
         }
+
 
         .service-card-front,
         .service-card-back {
@@ -381,10 +426,12 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
         }
 
+
         .service-card-front {
             background-color: var(--white);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
+
 
         .service-card-back {
             background: linear-gradient(135deg, var(--blue) 0%, #0d125e 100%);
@@ -392,15 +439,18 @@
             color: var(--white);
         }
 
+
         .service-icon {
             font-size: clamp(2.5rem, 6vw, 3.5rem);
             margin-bottom: 1.5rem;
             color: var(--blue);
         }
 
+
         .service-card-back .service-icon {
             color: var(--yellow);
         }
+
 
         .service-title {
             font-family: 'Commissioner', sans-serif;
@@ -410,9 +460,11 @@
             color: var(--blue);
         }
 
+
         .service-card-back .service-title {
             color: var(--white);
         }
+
 
         .service-desc {
             font-family: 'Roboto', sans-serif;
@@ -422,9 +474,11 @@
             margin-bottom: 1.5rem;
         }
 
+
         .service-card-back .service-desc {
             color: rgba(255, 255, 255, 0.85);
         }
+
 
         .service-features {
             list-style: none;
@@ -432,12 +486,14 @@
             margin-top: 1.5rem;
         }
 
+
         .service-feature {
             margin-bottom: 0.8rem;
             position: relative;
             padding-left: 1.8rem;
             font-size: 0.95rem;
         }
+
 
         .service-feature:before {
             content: '✓';
@@ -448,9 +504,11 @@
             font-weight: bold;
         }
 
+
         .service-card-back .service-feature:before {
             color: var(--yellow);
         }
+
 
         /* Process Section */
         .process-section {
@@ -460,6 +518,7 @@
             position: relative;
             overflow: hidden;
         }
+
 
         .process-title {
             font-family: 'Commissioner', sans-serif;
@@ -472,6 +531,7 @@
             z-index: 2;
         }
 
+
         .process-container {
             display: flex;
             flex-wrap: wrap;
@@ -483,6 +543,7 @@
             gap: 2rem;
         }
 
+
         .process-step {
             flex: 0 0 calc(25% - 2rem);
             text-align: center;
@@ -490,6 +551,7 @@
             position: relative;
             margin-bottom: 2rem;
         }
+
 
         .process-step:not(:last-child):after {
             content: '';
@@ -500,6 +562,7 @@
             height: 2px;
             background-color: var(--yellow);
         }
+
 
         .step-number {
             width: 70px;
@@ -517,6 +580,7 @@
             z-index: 2;
         }
 
+
         .step-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -525,12 +589,14 @@
             color: var(--white);
         }
 
+
         .step-desc {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.9);
         }
+
 
         /* Contact Section */
         .contact-section {
@@ -541,6 +607,7 @@
             overflow: hidden;
         }
 
+
         .contact-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -548,6 +615,7 @@
             margin-bottom: 1.5rem;
             color: var(--blue);
         }
+
 
         .contact-subtitle {
             font-family: 'Roboto', sans-serif;
@@ -559,6 +627,7 @@
             margin-right: auto;
             color: #555;
         }
+
 
         .contact-btn {
             display: inline-block;
@@ -577,6 +646,7 @@
             z-index: 2;
         }
 
+
         .contact-btn:before {
             content: '';
             position: absolute;
@@ -590,15 +660,18 @@
             z-index: -1;
         }
 
+
         .contact-btn:hover {
             color: var(--white);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(253, 235, 16, 0.3);
         }
 
+
         .contact-btn:hover:before {
             transform: translateX(0);
         }
+
 
         /* Footer */
         .footer {
@@ -607,6 +680,7 @@
             color: var(--white);
             position: relative;
         }
+
 
         .footer-content {
             display: flex;
@@ -617,6 +691,7 @@
             z-index: 2;
         }
 
+
         .footer-logo {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -625,9 +700,11 @@
             margin-bottom: 1.5rem;
         }
 
+
         .footer-logo span {
             color: var(--yellow);
         }
+
 
         .footer-about {
             max-width: 350px;
@@ -638,11 +715,13 @@
             line-height: 1.6;
         }
 
+
         .footer-links {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
+
 
         .footer-link {
             color: var(--white);
@@ -655,6 +734,7 @@
             transition: all 0.3s ease;
         }
 
+
         .footer-link:after {
             content: '';
             position: absolute;
@@ -666,13 +746,16 @@
             transition: width 0.3s ease;
         }
 
+
         .footer-link:hover {
             color: var(--yellow);
         }
 
+
         .footer-link:hover:after {
             width: 100%;
         }
+
 
         .copyright {
             text-align: center;
@@ -685,6 +768,7 @@
             position: relative;
             z-index: 2;
         }
+
 
         .social-link-footer {
             display: flex;
@@ -700,6 +784,7 @@
             text-decoration: none;
         }
 
+
         .social-link-footer:hover {
             transform: translateY(-4px);
             background-color: var(--yellow);
@@ -707,29 +792,35 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
 
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .card-container {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+
             .process-step {
                 flex: 0 0 calc(50% - 2rem);
             }
+
 
             .process-step:not(:last-child):after {
                 display: none;
             }
         }
 
+
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
             }
 
+
             .mobile-menu-btn {
                 display: block;
             }
+
 
             .footer-content {
                 flex-direction: column;
@@ -737,10 +828,12 @@
             }
         }
 
+
         @media (max-width: 768px) {
             .navbar {
                 padding: 1.2rem 5%;
             }
+
 
             .hero {
                 padding: 0 5%;
@@ -748,14 +841,17 @@
                 min-height: 500px;
             }
 
+
             .card-container {
                 grid-template-columns: 1fr;
             }
+
 
             .process-step {
                 flex: 0 0 100%;
             }
         }
+
 
         @media (max-width: 480px) {
             .floating-element.circle {
@@ -763,19 +859,23 @@
                 right: 5%;
             }
 
+
             .floating-element.square {
                 bottom: 20%;
                 left: 5%;
             }
+
 
             .hero {
                 height: 60vh;
                 min-height: 400px;
             }
 
+
             .service-card {
                 min-height: 400px;
             }
+
 
             .service-card-front,
             .service-card-back {
@@ -784,6 +884,7 @@
         }
     </style>
 </head>
+
 
 <body>
     <div class="page-container">
@@ -797,12 +898,12 @@
                 <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
                 <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
             </div>
-
+        
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
-
+        
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
@@ -812,7 +913,9 @@
             <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
         </div>
 
+
         <div class="menu-overlay" id="menuOverlay"></div>
+
 
         <!-- Main Content Area -->
         <main class="main-content">
@@ -824,6 +927,7 @@
                     <div class="floating-element square"></div>
                 </div>
 
+
                 <div class="hero-content">
                     <h1 class="hero-title"><span>Our Creative</span></h1>
                     <h1 class="hero-title"><span>Services</span></h1>
@@ -832,10 +936,12 @@
                 </div>
             </section>
 
+
             <!-- Services Section -->
             <section class="standard-section" id="services">
                 <h2 class="section-title">What We Offer</h2>
                 <p class="section-subtitle">Comprehensive creative solutions tailored to elevate your brand</p>
+
 
                 <div class="card-container" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="service-card">
@@ -866,6 +972,7 @@
                         </div>
                     </div>
 
+
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="service-card-front">
@@ -893,6 +1000,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="service-card">
                         <div class="service-card-inner">
@@ -924,6 +1032,7 @@
                 </div>
             </section>
 
+
             <!-- Process Section -->
             <section class="process-section" id="process">
                 <h2 class="process-title">Our Creative Process</h2>
@@ -935,6 +1044,7 @@
                             research.</p>
                     </div>
 
+
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <h3 class="step-title">Design</h3>
@@ -942,12 +1052,14 @@
                             objectives.</p>
                     </div>
 
+
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <h3 class="step-title">Develop</h3>
                         <p class="step-desc">We refine and execute the chosen direction with precision and attention to
                             detail.</p>
                     </div>
+
 
                     <div class="process-step">
                         <div class="step-number">4</div>
@@ -958,13 +1070,16 @@
                 </div>
             </section>
 
+
             <!-- Contact Section -->
             <section class="contact-section" id="contact">
                 <h2 class="contact-title">Ready to Elevate Your Brand?</h2>
                 <p class="contact-subtitle">Let's collaborate to create something extraordinary together</p>
-                <a href="{{ url_for('contactUS') }}" class="contact-btn">Start Your Project</a>
+                <a href="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\templates\contactus.html"
+                    class="contact-btn">Start Your Project</a>
             </section>
         </main>
+
 
         <!-- Footer -->
         <footer class="footer">
@@ -975,6 +1090,7 @@
                         strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
                 </div>
 
+
                 <div class="footer-links">
                     <a href="{{ url_for('landing_page') }}" class="footer-link">Our DNA</a>
                     <a href="{{ url_for('services') }}" class="footer-link">Services</a>
@@ -982,6 +1098,7 @@
                     <a href="{{ url_for('aboutUS') }}" class="footer-link">About us</a>
                     <a href="{{ url_for('contactUS') }}" class="footer-link">Contact</a>
                 </div>
+
 
                 <div class="footer-links">
                     <a href="https://instagram.com/swadharmacreations" class="footer-link">Instagram</a>
@@ -991,11 +1108,13 @@
                 </div>
             </div>
 
+
             <div class="copyright">
                 © 2023 Swadharma Creations. All rights reserved.
             </div>
         </footer>
     </div>
+
 
     <script>
         // Navbar scroll effect
@@ -1008,9 +1127,11 @@
             }
         });
 
+
         // Hero text animation
         const heroTitleSpans = document.querySelectorAll('.hero-title span');
         const heroSubtitle = document.querySelector('.hero-subtitle');
+
 
         setTimeout(() => {
             heroTitleSpans.forEach((span, index) => {
@@ -1020,17 +1141,21 @@
                 }, 300 * index);
             });
 
+
             setTimeout(() => {
                 heroSubtitle.style.transform = 'translateY(0)';
                 heroSubtitle.style.opacity = '1';
             }, 900);
         }, 500);
 
+
         // Service card hover effect
         const serviceCards = document.querySelectorAll('.service-card');
 
+
         // Detect touch devices
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+
 
         serviceCards.forEach(card => {
             if (!isTouchDevice) {
@@ -1038,6 +1163,7 @@
                 card.addEventListener('mouseenter', () => {
                     card.querySelector('.service-card-inner').style.transform = 'rotateY(180deg)';
                 });
+
 
                 card.addEventListener('mouseleave', () => {
                     card.querySelector('.service-card-inner').style.transform = 'rotateY(0deg)';
@@ -1053,6 +1179,7 @@
             }
         });
 
+
         // Process step animation
         const processSteps = document.querySelectorAll('.process-step');
         const observer = new IntersectionObserver((entries) => {
@@ -1064,6 +1191,7 @@
             });
         }, { threshold: 0.3 });
 
+
         processSteps.forEach(step => {
             step.style.opacity = '0';
             step.style.transform = 'translateY(30px)';
@@ -1071,14 +1199,17 @@
             observer.observe(step);
         });
 
+
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuOverlay = document.getElementById('menuOverlay');
 
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             menuOverlay.classList.toggle('active');
+
 
             // Change icon based on menu state
             if (mobileMenu.classList.contains('active')) {
@@ -1088,19 +1219,23 @@
             }
         });
 
+
         menuOverlay.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             menuOverlay.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
 
+
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
+
 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
@@ -1108,6 +1243,7 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+
 
                     // Close mobile menu if open
                     mobileMenu.classList.remove('active');
@@ -1118,5 +1254,6 @@
         });
     </script>
 </body>
+
 
 </html>

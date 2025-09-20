@@ -47,7 +47,7 @@
             align-items: center;
             z-index: 100;
             background-color: var(--white);
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .navbar.scrolled {
@@ -747,6 +747,7 @@
             font-size: 1rem;
             opacity: 0.8;
             line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links {
@@ -795,6 +796,12 @@
             opacity: 0.7;
             position: relative;
             z-index: 2;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .social-link-footer {
@@ -1263,8 +1270,8 @@
         <div class="photography-grid">
             <!-- Project 1 -->
             <div class="project-card" data-project="urban" data-category="commercial">
-                <div class="project-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image">
+                    <img src="path/to/your/local/image1.jpg" alt="Urban Dining Experience">
                     <div class="project-overlay">
                         <h3 class="project-title">Urban Dining Experience</h3>
                         <p class="project-desc">Commercial Photography Series</p>
@@ -1294,8 +1301,8 @@
 
             <!-- Project 2 -->
             <div class="project-card" data-project="portraits" data-category="portraits">
-                <div class="project-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image">
+                    <img src="path/to/your/local/image2.jpg" alt="Authentic Expressions">
                     <div class="project-overlay">
                         <h3 class="project-title">Authentic Expressions</h3>
                         <p class="project-desc">Portrait Photography Series</p>
@@ -1325,8 +1332,8 @@
 
             <!-- Project 3 -->
             <div class="project-card" data-project="product" data-category="products">
-                <div class="project-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image">
+                    <img src="path/to/your/local/image3.jpg" alt="Minimalist Watch Design">
                     <div class="project-overlay">
                         <h3 class="project-title">Minimalist Watch Design</h3>
                         <p class="project-desc">Product Photography Series</p>
@@ -1356,8 +1363,8 @@
 
             <!-- Project 4 -->
             <div class="project-card" data-project="fashion" data-category="commercial">
-                <div class="project-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image">
+                    <img src="path/to/your/local/image4.jpg" alt="Urban Fashion">
                     <div class="project-overlay">
                         <h3 class="project-title">Urban Fashion</h3>
                         <p class="project-desc">Fashion Photography Series</p>
@@ -1387,8 +1394,8 @@
 
             <!-- Project 5 -->
             <div class="project-card" data-project="corporate" data-category="portraits">
-                <div class="project-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image">
+                    <img src="path/to/your/local/image5.jpg" alt="Corporate Portraits">
                     <div class="project-overlay">
                         <h3 class="project-title">Corporate Portraits</h3>
                         <p class="project-desc">Professional Headshots</p>
@@ -1418,8 +1425,8 @@
 
             <!-- Project 6 -->
             <div class="project-card" data-project="jewelry" data-category="products">
-                <div class="project-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                <div class="project-image">
+                    <img src="path/to/your/local/image6.jpg" alt="Luxury Jewelry">
                     <div class="project-overlay">
                         <h3 class="project-title">Luxury Jewelry</h3>
                         <p class="project-desc">Product Photography Series</p>
@@ -1466,40 +1473,41 @@
         <div class="gallery-grid">
             <div class="gallery-item video" data-category="commercial">
                 <video
-                    poster="https://images.unsplash.com/photo-1574717024453-354056aafa98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    poster="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\Screenshot 2025-09-10 170326.png">
                     <source
-                        src="https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-large.mp4"
+                        src="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\bandvedam (1).mp4"
                         type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
                 </div>
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Mountain Adventure</h3>
+                    <h3 class="gallery-title">Band vedam</h3>
                     <p class="gallery-category">Commercial Videography</p>
                 </div>
             </div>
 
             <div class="gallery-item video" data-category="documentary">
                 <video
-                    poster="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4"
+                    poster="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\Screenshot 2025-09-10 171457.png">
+                    <source
+                        src="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\trailer_final.mp4"
                         type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
                 </div>
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Ocean Conservation</h3>
+                    <h3 class="gallery-title">Jivdhan Docummentary</h3>
                     <p class="gallery-category">Documentary Film</p>
                 </div>
             </div>
 
             <div class="gallery-item video" data-category="brand">
                 <video
-                    poster="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    poster="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\Screenshot 2025-09-10 171711.png">
                     <source
-                        src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-laptop-4082-large.mp4"
+                        src="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\tea making sample.mp4"
                         type="video/mp4">
                 </video>
                 <div class="video-icon">
@@ -1513,48 +1521,32 @@
 
             <div class="gallery-item video" data-category="commercial">
                 <video
-                    poster="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    poster="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\Screenshot 2025-09-10 172459.png">
                     <source
-                        src="https://assets.mixkit.co/videos/preview/mixkit-female-hands-typing-on-a-laptop-4084-large.mp4"
+                        src="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\Ajay   Madhuri Prewedding __ 2024 __ Kalalo Kooda __ Vizag(720P_60FPS).mp4"
                         type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
                 </div>
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Tech Lifestyle</h3>
+                    <h3 class="gallery-title">Pre-wedding</h3>
                     <p class="gallery-category">Commercial Videography</p>
-                </div>
-            </div>
-
-            <div class="gallery-item video" data-category="documentary">
-                <video
-                    poster="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                    <source
-                        src="https://assets.mixkit.co/videos/preview/mixkit-father-and-daughter-eating-marshmallows-in-nature-39765-large.mp4"
-                        type="video/mp4">
-                </video>
-                <div class="video-icon">
-                    <i class="fas fa-play"></i>
-                </div>
-                <div class="gallery-overlay">
-                    <h3 class="gallery-title">Family Moments</h3>
-                    <p class="gallery-category">Documentary Film</p>
                 </div>
             </div>
 
             <div class="gallery-item video" data-category="brand">
                 <video
-                    poster="https://images.unsplash.com/photo-1633287387306-f08b4b9ca6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    poster="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\Screenshot 2025-09-10 172849.png">
                     <source
-                        src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-coffee-beans-being-poured-4141-large.mp4"
+                        src="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\protfilo\like himm.mp4"
                         type="video/mp4">
                 </video>
                 <div class="video-icon">
                     <i class="fas fa-play"></i>
                 </div>
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Artisan Coffee</h3>
+                    <h3 class="gallery-title">Brand Story</h3>
                     <p class="gallery-category">Brand Film</p>
                 </div>
             </div>
@@ -1576,54 +1568,78 @@
         </div>
 
         <div class="gallery-grid">
-            <div class="gallery-item" data-category="video">
-                <img src="https://images.unsplash.com/photo-1574717024453-354056aafa98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="Video Editing">
+            <div class="gallery-item video" data-category="video">
+                <video poster="path/to/your/editing/thumbnail1.jpg">
+                    <source src="path/to/your/editing/video1.mp4" type="video/mp4">
+                </video>
+                <div class="video-icon">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Cinematic Sequence</h3>
                     <p class="gallery-category">Video Editing</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="photo">
-                <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="Photo Editing">
+            <div class="gallery-item video" data-category="video">
+                <video poster="path/to/your/editing/thumbnail2.jpg">
+                    <source src="path/to/your/editing/video2.mp4" type="video/mp4">
+                </video>
+                <div class="video-icon">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Color Grading</h3>
-                    <p class="gallery-category">Photo Editing</p>
+                    <p class="gallery-category">Video Editing</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="motion">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="Motion Graphics">
+            <div class="gallery-item video" data-category="motion">
+                <video poster="path/to/your/editing/thumbnail3.jpg">
+                    <source src="path/to/your/editing/video3.mp4" type="video/mp4">
+                </video>
+                <div class="video-icon">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Animated Transitions</h3>
                     <p class="gallery-category">Motion Graphics</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="video">
-                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="Video Editing">
+            <div class="gallery-item video" data-category="video">
+                <video poster="path/to/your/editing/thumbnail4.jpg">
+                    <source src="path/to/your/editing/video4.mp4" type="video/mp4">
+                </video>
+                <div class="video-icon">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Documentary Cut</h3>
                     <p class="gallery-category">Video Editing</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="photo">
-                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="Photo Editing">
+            <div class="gallery-item video" data-category="photo">
+                <video poster="path/to/your/editing/thumbnail5.jpg">
+                    <source src="path/to/your/editing/video5.mp4" type="video/mp4">
+                </video>
+                <div class="video-icon">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Retouching Mastery</h3>
                     <p class="gallery-category">Photo Editing</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="motion">
-                <img src="https://images.unsplash.com/photo-1633287387306-f08b4b9ca6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="Motion Graphics">
+            <div class="gallery-item video" data-category="motion">
+                <video poster="path/to/your/editing/thumbnail6.jpg">
+                    <source src="path/to/your/editing/video6.mp4" type="video/mp4">
+                </video>
+                <div class="video-icon">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Visual Effects</h3>
                     <p class="gallery-category">Motion Graphics</p>
@@ -1647,8 +1663,9 @@
         </div>
 
         <div class="gallery-grid">
-            <div class="gallery-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1567443024551-f3e3cc2be870?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            <div class="gallery-item design-item" data-category="branding"
+                data-image="https://images.unsplash.com/photo-1607177661072-5278e7acc644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhbmQlMjBpZGVudGl0eXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80">
+                <img src="https://images.unsplash.com/photo-1607177661072-5278e7acc644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhbmQlMjBpZGVudGl0eXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
                     alt="Brand Identity">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Corporate Identity</h3>
@@ -1656,8 +1673,9 @@
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="ui">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            <div class="gallery-item design-item" data-category="ui"
+                data-image="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dWklMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&w=1000&q=80">
+                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dWklMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&w=1000&q=80"
                     alt="UI/UX Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Mobile App Experience</h3>
@@ -1665,8 +1683,9 @@
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="print">
-                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            <div class="gallery-item design-item" data-category="print"
+                data-image="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJpbnQlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&w=1000&q=80">
+                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJpbnQlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&w=1000&q=80"
                     alt="Print Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Brochure Design</h3>
@@ -1674,8 +1693,9 @@
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1600856209923-34372e319a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            <div class="gallery-item design-item" data-category="branding"
+                data-image="https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJyYW5kJTIwaWRlbnRpdHl8ZW58MHx8MHx8fDA%3D&w=1000&q=80">
+                <img src="https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJyYW5kJTIwaWRlbnRpdHl8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
                     alt="Brand Identity">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Logo Evolution</h3>
@@ -1683,8 +1703,9 @@
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="ui">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            <div class="gallery-item design-item" data-category="ui"
+                data-image="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHVpJTIwZGVzaWdufGVufDB8fDB8fHww&w=1000&q=80">
+                <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHVpJTIwZESzaWdufGVufDB8fDB8fHww&w=1000&q=80"
                     alt="UI/UX Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Dashboard Design</h3>
@@ -1692,8 +1713,9 @@
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="print">
-                <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            <div class="gallery-item design-item" data-category="print"
+                data-image="https://images.unsplash.com/photo-1605600659908-0ef719419f14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3MlMjBjYXJkc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80">
+                <img src="https://images.unsplash.com/photo-1605600659908-0ef719419f14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3MlMjBjYXJkc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
                     alt="Print Design">
                 <div class="gallery-overlay">
                     <h3 class="gallery-title">Business Cards</h3>
@@ -1702,6 +1724,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Testimonials -->
     <section class="testimonials-section">
@@ -1768,6 +1791,12 @@
                 <div class="footer-logo">Swadharma<span>Creations</span></div>
                 <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and
                     strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link-footer"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link-footer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link-footer"><i class="fab fa-behance"></i></a>
+                    <a href="#" class="social-link-footer"><i class="fab fa-vimeo-v"></i></a>
+                </div>
             </div>
             <div class="footer-links">
                 <a href="{{ url_for('landing_page') }}" class="footer-link">Our DNA</a>
@@ -1776,8 +1805,6 @@
                 <a href="{{ url_for('aboutUS') }}" class="footer-link">About us</a>
                 <a href="{{ url_for('contactUS') }}" class="footer-link">Contact</a>
             </div>
-
-
             <div class="footer-links">
                 <a href="#" class="footer-link">Instagram</a>
                 <a href="#" class="footer-link">LinkedIn</a>
@@ -1867,60 +1894,70 @@
             "urban": {
                 title: "Urban Dining Experience",
                 images: [
-                    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    "path/to/your/local/image1.jpg",
+                    "path/to/your/local/image2.jpg",
+                    "path/to/your/local/image3.jpg",
+                    "path/to/your/local/image4.jpg"
                 ]
             },
             "portraits": {
                 title: "Authentic Expressions",
                 images: [
-                    "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    "path/to/your/local/image5.jpg",
+                    "path/to/your/local/image6.jpg",
+                    "path/to/your/local/image7.jpg",
+                    "path/to/your/local/image8.jpg",
+                    "path/to/your/local/image9.jpg"
                 ]
             },
             "product": {
                 title: "Minimalist Watch Design",
                 images: [
-                    "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1539874754764-5a96559165b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1547996160-81dfa63595aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1611595535889-5dacb0b1d3d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    "path/to/your/local/image10.jpg",
+                    "path/to/your/local/image11.jpg",
+                    "path/to/your/local/image12.jpg",
+                    "path/to/your/local/image13.jpg",
+                    "path/to/your/local/image14.jpg"
                 ]
             },
             "fashion": {
                 title: "Urban Fashion",
                 images: [
-                    "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    "path/to/your/local/image15.jpg",
+                    "path/to/your/local/image16.jpg",
+                    "path/to/your/local/image17.jpg",
+                    "path/to/your/local/image18.jpg"
                 ]
             },
             "corporate": {
                 title: "Corporate Portraits",
                 images: [
-                    "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    "path/to/your/local/image19.jpg",
+                    "path/to/your/local/image20.jpg",
+                    "path/to/your/local/image21.jpg",
+                    "path/to/your/local/image22.jpg"
                 ]
             },
             "jewelry": {
                 title: "Luxury Jewelry",
                 images: [
-                    "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    "path/to/your/local/image23.jpg",
+                    "path/to/your/local/image24.jpg",
+                    "path/to/your/local/image25.jpg",
+                    "path/to/your/local/image26.jpg"
                 ]
             }
         };
+
+        // Design images data
+        const designImages = [
+            "path/to/your/design/image1.jpg",
+            "path/to/your/design/image2.jpg",
+            "path/to/your/design/image3.jpg",
+            "path/to/your/design/image4.jpg",
+            "path/to/your/design/image5.jpg",
+            "path/to/your/design/image6.jpg"
+        ];
 
         // Lightbox elements
         const lightbox = document.getElementById('lightbox');
@@ -1936,6 +1973,7 @@
         let currentProject = null;
         let currentIndex = 0;
         let currentMediaType = 'image'; // 'image' or 'video'
+        let currentDesignIndex = 0;
 
         // Open lightbox with project images
         function openLightbox(projectId, index = 0) {
@@ -1969,6 +2007,22 @@
             currentMediaType = 'video';
         }
 
+        // Open design image lightbox
+        function openDesignLightbox(imageSrc, title, index) {
+            lightboxVideo.style.display = 'none';
+            lightboxImg.style.display = 'block';
+
+            lightboxImg.src = imageSrc;
+            lightboxTitle.textContent = title;
+            lightboxCounter.textContent = `${index + 1}/${designImages.length}`;
+
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            currentMediaType = 'image';
+            currentDesignIndex = index;
+        }
+
         // Update lightbox image
         function updateLightboxImage() {
             lightboxVideo.style.display = 'none';
@@ -1979,6 +2033,24 @@
             lightboxCounter.textContent = `${currentIndex + 1}/${project.images.length}`;
 
             currentMediaType = 'image';
+        }
+
+        // Navigate to next design image
+        function nextDesignImage() {
+            if (currentMediaType !== 'image') return;
+
+            currentDesignIndex = (currentDesignIndex + 1) % designImages.length;
+            lightboxImg.src = designImages[currentDesignIndex];
+            lightboxCounter.textContent = `${currentDesignIndex + 1}/${designImages.length}`;
+        }
+
+        // Navigate to previous design image
+        function prevDesignImage() {
+            if (currentMediaType !== 'image') return;
+
+            currentDesignIndex = (currentDesignIndex - 1 + designImages.length) % designImages.length;
+            lightboxImg.src = designImages[currentDesignIndex];
+            lightboxCounter.textContent = `${currentDesignIndex + 1}/${designImages.length}`;
         }
 
         // Close lightbox
@@ -1995,18 +2067,26 @@
         function nextImage() {
             if (currentMediaType !== 'image') return;
 
-            const project = projects[currentProject];
-            currentIndex = (currentIndex + 1) % project.images.length;
-            updateLightboxImage();
+            if (currentProject) {
+                const project = projects[currentProject];
+                currentIndex = (currentIndex + 1) % project.images.length;
+                updateLightboxImage();
+            } else {
+                nextDesignImage();
+            }
         }
 
         // Navigate to previous image
         function prevImage() {
             if (currentMediaType !== 'image') return;
 
-            const project = projects[currentProject];
-            currentIndex = (currentIndex - 1 + project.images.length) % project.images.length;
-            updateLightboxImage();
+            if (currentProject) {
+                const project = projects[currentProject];
+                currentIndex = (currentIndex - 1 + project.images.length) % project.images.length;
+                updateLightboxImage();
+            } else {
+                prevDesignImage();
+            }
         }
 
         // Event listeners for project cards
@@ -2024,6 +2104,15 @@
                 const video = icon.closest('.gallery-item').querySelector('video');
                 const title = icon.closest('.gallery-item').querySelector('.gallery-title').textContent;
                 openVideoLightbox(video.querySelector('source').src, title);
+            });
+        });
+
+        // Event listeners for design items
+        document.querySelectorAll('.design-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const imageSrc = item.getAttribute('data-image');
+                const title = item.querySelector('.gallery-title').textContent;
+                openDesignLightbox(imageSrc, title, index);
             });
         });
 
