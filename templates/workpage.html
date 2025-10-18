@@ -1271,7 +1271,8 @@
             <!-- Project 1 -->
             <div class="project-card" data-project="urban" data-category="commercial">
                 <div class="project-image">
-                    <img src="path/to/your/local/image1.jpg" alt="Urban Dining Experience">
+                    <img src="{{ url_for('static', filename='photos/1000128095.jpg') }}" alt="Urban Dining Experience" ,
+                        width="100%" , height="100%">
                     <div class="project-overlay">
                         <h3 class="project-title">Urban Dining Experience</h3>
                         <p class="project-desc">Commercial Photography Series</p>
@@ -1888,63 +1889,60 @@
                 document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-
         // Project data for photography section
         const projects = {
             "urban": {
                 title: "Urban Dining Experience",
                 images: [
-                    "path/to/your/local/image1.jpg",
-                    "path/to/your/local/image2.jpg",
-                    "path/to/your/local/image3.jpg",
-                    "path/to/your/local/image4.jpg"
+                    ""
+                    "{{ url_for('static', filename='photos/1000128098.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128096.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}"
                 ]
             },
             "portraits": {
                 title: "Authentic Expressions",
                 images: [
-                    "path/to/your/local/image5.jpg",
-                    "path/to/your/local/image6.jpg",
-                    "path/to/your/local/image7.jpg",
-                    "path/to/your/local/image8.jpg",
-                    "path/to/your/local/image9.jpg"
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128098.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128096.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}"
                 ]
             },
             "product": {
                 title: "Minimalist Watch Design",
                 images: [
-                    "path/to/your/local/image10.jpg",
-                    "path/to/your/local/image11.jpg",
-                    "path/to/your/local/image12.jpg",
-                    "path/to/your/local/image13.jpg",
-                    "path/to/your/local/image14.jpg"
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128098.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128096.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}"
                 ]
             },
             "fashion": {
                 title: "Urban Fashion",
                 images: [
-                    "path/to/your/local/image15.jpg",
-                    "path/to/your/local/image16.jpg",
-                    "path/to/your/local/image17.jpg",
-                    "path/to/your/local/image18.jpg"
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128098.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128096.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}"
                 ]
             },
             "corporate": {
                 title: "Corporate Portraits",
                 images: [
-                    "path/to/your/local/image19.jpg",
-                    "path/to/your/local/image20.jpg",
-                    "path/to/your/local/image21.jpg",
-                    "path/to/your/local/image22.jpg"
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128098.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128096.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}"
                 ]
             },
             "jewelry": {
                 title: "Luxury Jewelry",
                 images: [
-                    "path/to/your/local/image23.jpg",
-                    "path/to/your/local/image24.jpg",
-                    "path/to/your/local/image25.jpg",
-                    "path/to/your/local/image26.jpg"
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128098.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128096.jpg') }}",
+                    "{{ url_for('static', filename='photos/1000128102.jpg') }}"
                 ]
             }
         };

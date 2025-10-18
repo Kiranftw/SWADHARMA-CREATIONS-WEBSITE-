@@ -898,12 +898,12 @@
                 <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
                 <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
             </div>
-        
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
@@ -916,8 +916,6 @@
 
         <div class="menu-overlay" id="menuOverlay"></div>
 
-
-        <!-- Main Content Area -->
         <main class="main-content">
             <!-- Hero Section -->
             <section class="hero" id="home">
@@ -1243,8 +1241,6 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-
-
                     // Close mobile menu if open
                     mobileMenu.classList.remove('active');
                     menuOverlay.classList.remove('active');
@@ -1254,6 +1250,4 @@
         });
     </script>
 </body>
-
-
 </html>

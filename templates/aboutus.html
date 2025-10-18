@@ -973,8 +973,6 @@
         <!-- Floating elements -->
         <div class="floating-element circle"></div>
         <div class="floating-element square"></div>
-
-
         <div class="hero-content">
             <h1 class="hero-title"><span>About Us</span></h1>
             <p class="hero-subtitle">Discover the story behind Swadharma Creations</p>
@@ -1053,62 +1051,29 @@
             <div class="team-members">
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Aisha Sharma">
+                        <img src="{{ url_for('static', filename='photos/HARI.jpg') }}" alt="HARIKESH">
                     </div>
                     <div class="member-info">
-                        <h3>Aisha Sharma</h3>
-                        <p>Founder & Creative Director</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
+                        <h3>HARIKESH VERMA</h3>
+                        <p>Co-Founder & Creative Head</p>
                     </div>
                 </div>
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Raj Patel">
+                        <img src="{{ url_for('static', filename='photos/1000128098.jpg') }}" alt="CHARAN SAI">
                     </div>
                     <div class="member-info">
-                        <h3>Raj Patel</h3>
-                        <p>Lead Photographer</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
+                        <h3>CHARAN SAI</h3>
+                        <p>Co-Founder & CMO</p>
                     </div>
                 </div>
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Maya Verma">
+                        <img src="{{ url_for('static', filename='photos/SAND.jpg') }}" alt="SANDESH">
                     </div>
                     <div class="member-info">
-                        <h3>Maya Verma</h3>
-                        <p>Senior Designer</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Arjun Singh">
-                    </div>
-                    <div class="member-info">
-                        <h3>Arjun Singh</h3>
-                        <p>Video Director</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
+                        <h3>SANDESH</h3>
+                        <p>Co-Founder & CFO</p>
                     </div>
                 </div>
             </div>
@@ -1158,8 +1123,7 @@
             <div class="cta-content">
                 <h2>Ready to Elevate Your Brand?</h2>
                 <p>Let's collaborate to create something extraordinary together</p>
-                <a href="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\templates\contactus.html"
-                    class="cta-btn">Start Your Project</a>
+                <a href="{{ url_for('contactUS') }}" class="cta-btn">Start Your Project</a>
             </div>
         </div>
     </section>
