@@ -155,11 +155,6 @@ def aboutUS():
 def services():
     return render_template("services.html")
 
-
-@app.route("/workpage")
-def workpage():
-    return render_template("workpage.html")
-
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 3000))
     app.run(host="0.0.0.0", port=port, debug=True)

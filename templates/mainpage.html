@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +15,15 @@
             --yellow: #FDEB10;
             --black: #000000;
             --white: #FFFFFF;
+            --light-gray: #F9FAFC;
+            --dark-blue: #0A1633;
         }
-
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
 
         body {
             font-family: 'Roboto', sans-serif;
@@ -33,7 +32,6 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-
 
         /* Navigation */
         .navbar {
@@ -50,12 +48,10 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-
         .navbar.scrolled {
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
             padding: 1rem 5%;
         }
-
 
         .nav-logo {
             font-family: 'Commissioner', sans-serif;
@@ -68,32 +64,17 @@
             z-index: 101;
         }
 
-
-        .nav-logo:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
+        .nav-logo span {
             background-color: var(--yellow);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            margin-left: 2px;
         }
-
-
-        .nav-logo:hover:after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
 
         .nav-links {
             display: flex;
             gap: 2.5rem;
         }
-
 
         .nav-link {
             font-family: 'Roboto', sans-serif;
@@ -104,7 +85,6 @@
             position: relative;
             padding: 0.5rem 0;
         }
-
 
         .nav-link:after {
             content: '';
@@ -117,11 +97,9 @@
             transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-
         .nav-link:hover:after {
             width: 100%;
         }
-
 
         /* Mobile Menu Button */
         .mobile-menu-btn {
@@ -133,12 +111,51 @@
             padding: 10px;
         }
 
-
         .mobile-menu-btn i {
             font-size: 28px;
             color: var(--black);
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 99;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 6rem 2rem 2rem;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .nav-links {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 98;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
         /* Hero Section */
         .hero {
@@ -153,12 +170,10 @@
             text-align: center;
         }
 
-
         .hero-content {
             position: relative;
             z-index: 20;
         }
-
 
         .hero-title {
             font-family: 'Commissioner', sans-serif;
@@ -174,13 +189,11 @@
             text-align: center;
         }
 
-
         .hero-title span {
             display: inline-block;
             transform: translateY(100%);
             opacity: 0;
         }
-
 
         .hero-subtitle {
             font-family: 'Roboto', sans-serif;
@@ -192,14 +205,15 @@
             margin-left: auto;
             margin-right: auto;
             color: #555;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
 
         .hero-highlight {
             background-color: var(--yellow);
             padding: 0 0.5rem;
         }
-
 
         /* Floating Elements */
         .floating-elements {
@@ -212,14 +226,12 @@
             pointer-events: none;
         }
 
-
         .floating-element {
             position: absolute;
             opacity: 0.9;
             z-index: 10;
             animation: float 6s ease-in-out infinite;
         }
-
 
         .floating-element.circle {
             width: clamp(80px, 25vw, 200px);
@@ -230,7 +242,6 @@
             right: 10%;
         }
 
-
         .floating-element.square {
             width: clamp(60px, 20vw, 150px);
             height: clamp(60px, 20vw, 150px);
@@ -240,21 +251,17 @@
             animation-delay: 1s;
         }
 
-
         @keyframes float {
-
 
             0%,
             100% {
                 transform: translateY(0) rotate(0deg);
             }
 
-
             50% {
                 transform: translateY(-20px) rotate(5deg);
             }
         }
-
 
         /* DNA Visualization Section */
         .dna-visualization {
@@ -265,13 +272,11 @@
             overflow: hidden;
         }
 
-
         .dna-header {
             text-align: center;
             margin-bottom: 3rem;
             padding: 0 5%;
         }
-
 
         .dna-title {
             font-family: 'Commissioner', sans-serif;
@@ -282,7 +287,6 @@
             position: relative;
             display: inline-block;
         }
-
 
         .dna-title:after {
             content: '';
@@ -295,7 +299,6 @@
             background-color: var(--yellow);
         }
 
-
         .dna-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -304,7 +307,6 @@
             margin: 0 auto;
             color: #555;
         }
-
 
         .dna-container {
             display: grid;
@@ -317,11 +319,9 @@
             margin: 0 auto;
         }
 
-
         .dna-element {
             perspective: 1000px;
         }
-
 
         .dna-card {
             width: 100%;
@@ -333,11 +333,9 @@
             cursor: pointer;
         }
 
-
         .dna-card.flipped {
             transform: rotateY(180deg);
         }
-
 
         .dna-card-front,
         .dna-card-back {
@@ -351,14 +349,13 @@
             justify-content: center;
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
 
         .dna-card-front {
             background-color: var(--white);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-
 
         .dna-card-back {
             background: linear-gradient(135deg, var(--blue) 0%, #0d125e 100%);
@@ -366,18 +363,15 @@
             color: var(--white);
         }
 
-
         .dna-icon {
             font-size: clamp(2.5rem, 6vw, 3.5rem);
             margin-bottom: 1rem;
             color: var(--blue);
         }
 
-
         .dna-card-back .dna-icon {
             color: var(--yellow);
         }
-
 
         .dna-element-title {
             font-family: 'Commissioner', sans-serif;
@@ -385,13 +379,12 @@
             font-size: clamp(1.5rem, 4vw, 1.8rem);
             margin-bottom: 0.8rem;
             color: var(--blue);
+            text-transform: uppercase;
         }
-
 
         .dna-card-back .dna-element-title {
             color: var(--white);
         }
-
 
         .dna-element-desc {
             font-family: 'Roboto', sans-serif;
@@ -400,11 +393,9 @@
             color: #555;
         }
 
-
         .dna-card-back .dna-element-desc {
             color: rgba(255, 255, 255, 0.85);
         }
-
 
         /* Animated DNA Strand Background */
         .dna-strand-bg {
@@ -418,7 +409,6 @@
             z-index: 1;
         }
 
-
         .dna-strand {
             position: absolute;
             top: 50%;
@@ -429,7 +419,6 @@
             opacity: 0.05;
         }
 
-
         .helix {
             position: absolute;
             width: 100%;
@@ -437,37 +426,219 @@
             animation: rotate 60s linear infinite;
         }
 
-
         .helix-path {
             stroke: var(--blue);
             stroke-width: 2;
             fill: none;
         }
 
-
         .helix:nth-child(2) {
             transform: translateX(20px);
             animation-duration: 55s;
         }
-
 
         .helix:nth-child(3) {
             transform: translateX(40px);
             animation-duration: 65s;
         }
 
-
         @keyframes rotate {
             0% {
                 transform: rotate(0deg);
             }
-
 
             100% {
                 transform: rotate(360deg);
             }
         }
 
+        /* Services Section - UPDATED */
+        .services-section {
+            padding: 2rem 0 5rem;
+            /* Reduced top padding to decrease gap */
+            background-color: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 5%;
+        }
+
+        .services-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .services-title:after {
+            content: '';
+            position: absolute;
+            bottom: -0.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--yellow);
+        }
+
+        .services-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        .services-scroll-container {
+            position: relative;
+            padding: 0 5%;
+        }
+
+        .services-scroll-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding: 2rem 0;
+            scrollbar-width: none;
+            /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none;
+            /* Hide scrollbar for IE and Edge */
+        }
+
+        .services-scroll-wrapper::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar for Chrome, Safari and Opera */
+        }
+
+        /* NEW VERTICAL CARDS */
+        .service-card {
+            flex: 0 0 320px;
+            /* Narrow width for tall cards */
+            height: 480px;
+            /* Increased height for tall cards */
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            scroll-snap-align: start;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafc 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow), var(--blue));
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover:before {
+            transform: translateX(0);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--blue);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(253, 235, 16, 0.1);
+            margin-top: 1rem;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: rgba(253, 235, 16, 0.2);
+        }
+
+        .service-title {
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-desc {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            background-color: var(--yellow);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-btn.left {
+            left: 20px;
+        }
+
+        .scroll-btn.right {
+            right: 20px;
+        }
+
+        .scroll-btn i {
+            font-size: 1.5rem;
+            color: var(--blue);
+        }
 
         /* Values Section */
         .values-section {
@@ -477,7 +648,6 @@
             position: relative;
             overflow: hidden;
         }
-
 
         .section-title {
             font-family: 'Commissioner', sans-serif;
@@ -490,7 +660,6 @@
             z-index: 2;
         }
 
-
         .values-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -501,7 +670,6 @@
             margin: 0 auto;
         }
 
-
         .value-card {
             background-color: rgba(255, 255, 255, 0.08);
             padding: 1.5rem;
@@ -511,13 +679,11 @@
             overflow: hidden;
         }
 
-
         .value-card:hover {
             transform: translateY(-10px);
             background-color: rgba(255, 255, 255, 0.12);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-
 
         .value-card:before {
             content: '';
@@ -531,11 +697,9 @@
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-
         .value-card:hover:before {
             transform: translateX(0);
         }
-
 
         .value-icon {
             font-size: clamp(2rem, 5vw, 3rem);
@@ -543,14 +707,13 @@
             color: var(--yellow);
         }
 
-
         .value-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
             font-size: clamp(1.5rem, 4vw, 1.8rem);
             margin-bottom: 0.8rem;
+            text-transform: uppercase;
         }
-
 
         .value-desc {
             font-family: 'Roboto', sans-serif;
@@ -559,7 +722,6 @@
             line-height: 1.6;
             opacity: 0.9;
         }
-
 
         /* Floating Particles */
         .particles {
@@ -572,14 +734,12 @@
             z-index: 1;
         }
 
-
         .particle {
             position: absolute;
             border-radius: 50%;
             background: var(--yellow);
             opacity: 0.35;
         }
-
 
         /* Contact Section */
         .contact-section {
@@ -590,7 +750,6 @@
             overflow: hidden;
         }
 
-
         .contact-title {
             font-family: 'Commissioner', sans-serif;
             font-weight: 700;
@@ -598,7 +757,6 @@
             margin-bottom: 1rem;
             color: var(--blue);
         }
-
 
         .contact-subtitle {
             font-family: 'Roboto', sans-serif;
@@ -610,7 +768,6 @@
             margin-right: auto;
             color: #555;
         }
-
 
         .contact-btn {
             display: inline-block;
@@ -629,7 +786,6 @@
             z-index: 2;
         }
 
-
         .contact-btn:before {
             content: '';
             position: absolute;
@@ -643,18 +799,15 @@
             z-index: -1;
         }
 
-
         .contact-btn:hover {
             color: var(--white);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(253, 235, 16, 0.3);
         }
 
-
         .contact-btn:hover:before {
             transform: translateX(0);
         }
-
 
         /* Footer */
         .footer {
@@ -662,83 +815,121 @@
             background-color: var(--black);
             color: var(--white);
             position: relative;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
         }
 
-
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             margin-bottom: 4rem;
             position: relative;
             z-index: 2;
         }
 
-
-        .footer-logo {
+        .footer-column h3 {
             font-family: 'Commissioner', sans-serif;
-            font-weight: 700;
-            font-size: 2rem;
-            color: var(--white);
+            font-weight: 600;
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
-        }
-
-
-        .footer-logo span {
             color: var(--yellow);
+            text-transform: uppercase;
         }
 
-
-        .footer-about {
-            max-width: 350px;
+        .footer-column p,
+        .footer-column a {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 1rem;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
-        }
-
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-
-        .footer-link {
-            color: var(--white);
+            margin-bottom: 0.8rem;
             text-decoration: none;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-            font-size: 1.1rem;
-            position: relative;
-            padding: 0.3rem 0;
-            transition: all 0.3s ease;
+            display: block;
         }
 
-
-        .footer-link:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--yellow);
-            transition: width 0.3s ease;
-        }
-
-
-        .footer-link:hover {
+        .footer-column a:hover {
             color: var(--yellow);
         }
 
-
-        .footer-link:hover:after {
-            width: 100%;
+        .footer-map {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        .footer-map img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-map:hover img {
+            transform: scale(1.03);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-icon {
+            color: var(--yellow);
+            font-size: 1.1rem;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            padding: 0;
+            position: relative;
+        }
+
+        .social-link i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+            background-color: var(--white);
+            color: var(--black);
+            box-shadow: 0 0 0 3px var(--yellow);
+        }
 
         .copyright {
             text-align: center;
@@ -752,32 +943,6 @@
             z-index: 2;
         }
 
-
-        .social-link-footer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.15);
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-
-        .social-link-footer:hover {
-            transform: translateY(-4px);
-            background-color: var(--yellow);
-            color: var(--black);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-        }
-
-
-
-
         /* Responsive Design */
         @media (max-width: 1200px) {
             .dna-container {
@@ -787,36 +952,73 @@
             }
         }
 
-
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
             }
 
-
             .mobile-menu-btn {
                 display: block;
             }
-
 
             .dna-container {
                 grid-template-columns: 1fr;
                 max-width: 500px;
             }
-        }
 
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card {
+                flex: 0 0 280px;
+                height: 440px;
+            }
+
+            .scroll-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
 
         @media (max-width: 768px) {
             .navbar {
                 padding: 1.2rem 5%;
             }
 
-
             .hero {
                 padding: 0 5%;
             }
-        }
 
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-scroll-container {
+                padding: 0 3%;
+            }
+
+            .service-card {
+                flex: 0 0 260px;
+                height: 420px;
+                padding: 2rem 1.5rem;
+            }
+
+            .service-title {
+                font-size: 1.3rem;
+            }
+
+            .service-icon {
+                font-size: 3.5rem;
+                width: 90px;
+                height: 90px;
+            }
+
+            .scroll-btn {
+                display: none;
+                /* Hide arrows on mobile for better touch experience */
+            }
+        }
 
         @media (max-width: 480px) {
             .floating-element.circle {
@@ -824,30 +1026,42 @@
                 right: 5%;
             }
 
-
             .floating-element.square {
                 bottom: 20%;
                 left: 5%;
             }
 
-
             .dna-card {
                 min-height: 320px;
+            }
+
+            .service-card {
+                flex: 0 0 240px;
+                height: 380px;
+                padding: 1.5rem;
+            }
+
+            .service-title {
+                font-size: 1.2rem;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
 </head>
 
-
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="#" class="nav-logo">Swadharma</a>
+        <a href="#" class="nav-logo">Swadharma<span>Creations</span></a>
         <div class="nav-links">
             <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
             <a href="{{ url_for('aboutUS') }}" class="nav-link">About us</a>
             <a href="{{ url_for('services') }}" class="nav-link">Services</a>
-            <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
             <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
         </div>
 
@@ -862,16 +1076,11 @@
             <a href="{{ url_for('landing_page') }}" class="nav-link">Brand DNA</a>
             <a href="{{ url_for('aboutUS') }}" class="nav-link">About us</a>
             <a href="{{ url_for('services') }}" class="nav-link">Services</a>
-            <a href="{{ url_for('workpage') }}" class="nav-link">Our work</a>
             <a href="{{ url_for('contactUS') }}" class="nav-link">Contact</a>
         </div>
     </div>
 
-
-
-
     <div class="menu-overlay" id="menuOverlay"></div>
-
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -881,7 +1090,6 @@
             <div class="floating-element square"></div>
         </div>
 
-
         <div class="hero-content">
             <h1 class="hero-title"><span>Swadharma</span></h1>
             <h1 class="hero-title"><span>Creations</span></h1>
@@ -889,7 +1097,6 @@
                 design excellence</p>
         </div>
     </section>
-
 
     <!-- Brand DNA Visualization -->
     <section class="dna-visualization" id="dna">
@@ -913,13 +1120,11 @@
             </div>
         </div>
 
-
         <div class="dna-header">
             <h2 class="dna-title">Our Creative DNA</h2>
             <p class="dna-subtitle">The fundamental elements that define our approach to creative work and brand
                 development</p>
         </div>
-
 
         <div class="dna-container">
             <div class="dna-element">
@@ -939,7 +1144,6 @@
                 </div>
             </div>
 
-
             <div class="dna-element">
                 <div class="dna-card">
                     <div class="dna-card-front">
@@ -957,7 +1161,6 @@
                 </div>
             </div>
 
-
             <div class="dna-element">
                 <div class="dna-card">
                     <div class="dna-card-front">
@@ -974,7 +1177,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="dna-element">
                 <div class="dna-card">
@@ -995,11 +1197,71 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="services-header">
+            <h2 class="services-title">What We Do</h2>
+            <p class="services-subtitle">Our comprehensive creative services to elevate your brand</p>
+        </div>
+
+        <div class="services-scroll-container">
+            <button class="scroll-btn left" id="scrollLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="services-scroll-wrapper" id="servicesScroll">
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3 class="service-title">Video Shooting & Production</h3>
+                    <p class="service-desc">High-quality cinematic shoots for events, ads, and documentaries. We bring
+                        your vision to life with professional camera work and direction.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💍</div>
+                    <h3 class="service-title">Pre-Wedding Shoots</h3>
+                    <p class="service-desc">Creative storytelling to capture timeless memories with cinematic themes and
+                        professional editing.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3 class="service-title">Video Editing</h3>
+                    <p class="service-desc">Professional editing, transitions, and color grading to deliver sharp,
+                        engaging final outputs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📸</div>
+                    <h3 class="service-title">Product Photography</h3>
+                    <p class="service-desc">Detailed, high-resolution visuals that showcase every angle of your product
+                        with professional lighting.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3 class="service-title">Digital Marketing</h3>
+                    <p class="service-desc">Comprehensive strategies including SEO, ad campaigns, and content creation
+                        to enhance brand reach.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3 class="service-title">Creative Direction</h3>
+                    <p class="service-desc">Strategic concept development and branding visuals to ensure consistency
+                        across all projects.</p>
+                </div>
+            </div>
+
+            <button class="scroll-btn right" id="scrollRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
 
     <!-- Values Section -->
     <section class="values-section" id="values">
         <div class="particles" id="particles"></div>
-
 
         <h2 class="section-title">Our Core Values</h2>
         <div class="values-container">
@@ -1010,14 +1272,12 @@
                     imagination and originality.</p>
             </div>
 
-
             <div class="value-card">
                 <div class="value-icon">🔒</div>
                 <h3 class="value-title">Confident</h3>
                 <p class="value-desc">We stand behind our work with conviction, delivering solutions that make a bold
                     statement.</p>
             </div>
-
 
             <div class="value-card">
                 <div class="value-icon">🔍</div>
@@ -1026,14 +1286,12 @@
                     always considered.</p>
             </div>
 
-
             <div class="value-card">
                 <div class="value-icon">🎯</div>
                 <h3 class="value-title">Strategic</h3>
                 <p class="value-desc">We create with intention. Every design and campaign is backed by purpose and a
                     plan.</p>
             </div>
-
 
             <div class="value-card">
                 <div class="value-icon">🤝</div>
@@ -1043,7 +1301,6 @@
         </div>
     </section>
 
-
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <h2 class="contact-title">Let's Create Together</h2>
@@ -1052,40 +1309,85 @@
             class="contact-btn">Get in Touch</a>
     </section>
 
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div>
-                <div class="footer-logo">Swadharma<span>Creations</span></div>
-                <p class="footer-about">A creative studio that helps brands grow through compelling storytelling and
-                    strong visuals. We blend creativity, culture, and strategy to deliver impactful results.</p>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            Bootuppet, Medipolly, Hyderabad, Telangana – 500038
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            +91 896088767
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            sales@zonmedicaldevices.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-pin"></i>
+                        </div>
+                        <div class="contact-text">
+                            500038
+                        </div>
+                    </div>
+                </div>
             </div>
 
-
-            <div class="footer-links">
-                <a href="{{ url_for('landing_page') }}" class="footer-link">Our DNA</a>
-                <a href="{{ url_for('services') }}" class="footer-link">Services</a>
-                <a href="{{ url_for('workpage') }}" class="footer-link">Our Work</a>
-                <a href="{{ url_for('aboutUS') }}" class="footer-link">About us</a>
-                <a href="{{ url_for('contactUS') }}" class="footer-link">Contact</a>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="{{ url_for('landing_page') }}">Home</a>
+                <a href="{{ url_for('services') }}">Services</a>
+                <a href="{{ url_for('aboutUS') }}">About Us</a>
+                <a href="{{ url_for('contactUS') }}">Contact</a>
             </div>
 
+            <div class="footer-column">
+                <h3>Our Location</h3>
+                <a href="https://www.openstreetmap.org/?mlat=17.3850&mlon=78.4867#map=13/17.3850/78.4867"
+                    target="_blank" rel="noopener noreferrer">
+                    <div class="footer-map">
+                        <img src="https://static-maps.yandex.ru/1.x/?ll=78.4867,17.3850&z=13&l=map&size=600,300&pt=78.4867,17.3850,pm2rdl"
+                            alt="Map showing Zon Medical Devices location in Hyderabad, India">
+                    </div>
+                </a>
+                <p style="margin-top:10px; color:rgba(255,255,255,0.7); font-size:0.9rem;">
+                    <i class="fas fa-map-marker-alt"></i> Hyderabad, India
+                </p>
+            </div>
 
-            <div class="footer-links">
-                <a href="https://instagram.com/swadharmacreations" class="footer-link">Instagram</a>
-                <a href="https://linkedin.com/company/swadharmacreations" class="footer-link">LinkedIn</a>
-                <a href="mailto:swadharamcreations@gmail.com" class="footer-link">Email</a>
-                <a href="tel:+1234567890" class="footer-link">Phone</a>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-
 
         <div class="copyright">
-            © 2023 Swadharma Creations. All rights reserved.
+            © 2023 Zona Medical Devices, All rights reserved.
         </div>
     </footer>
-
 
     <script>
         // Navbar scroll effect
@@ -1098,11 +1400,9 @@
             }
         });
 
-
         // Hero text animation
         const heroTitleSpans = document.querySelectorAll('.hero-title span');
         const heroSubtitle = document.querySelector('.hero-subtitle');
-
 
         setTimeout(() => {
             heroTitleSpans.forEach((span, index) => {
@@ -1112,51 +1412,41 @@
                 }, 300 * index);
             });
 
-
             setTimeout(() => {
                 heroSubtitle.style.transform = 'translateY(0)';
                 heroSubtitle.style.opacity = '1';
             }, 900);
         }, 500);
 
-
         // Create floating particles
         const particlesContainer = document.getElementById('particles');
         const particleCount = 30;
 
-
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
-
 
             // Random size
             const size = Math.random() * 8 + 2;
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
 
-
             // Random position
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
-
 
             // Random animation
             particle.style.animation = `float ${Math.random() * 6 + 4}s infinite ease-in-out`;
             particle.style.animationDelay = `${Math.random() * 5}s`;
 
-
             particlesContainer.appendChild(particle);
         }
-
 
         // DNA card flip effect
         const dnaCards = document.querySelectorAll('.dna-card');
 
-
         // Detect touch devices
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-
 
         dnaCards.forEach(card => {
             if (!isTouchDevice) {
@@ -1164,7 +1454,6 @@
                 card.addEventListener('mouseenter', () => {
                     card.classList.add('flipped');
                 });
-
 
                 card.addEventListener('mouseleave', () => {
                     card.classList.remove('flipped');
@@ -1177,16 +1466,34 @@
             }
         });
 
+        // Services section horizontal scrolling
+        const servicesScroll = document.getElementById('servicesScroll');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+
+        if (scrollLeftBtn && scrollRightBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                servicesScroll.scrollBy({
+                    left: -320,
+                    behavior: 'smooth'
+                });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                servicesScroll.scrollBy({
+                    left: 320,
+                    behavior: 'smooth'
+                });
+            });
+        }
 
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
-
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
@@ -1195,7 +1502,6 @@
                         behavior: 'smooth'
                     });
 
-
                     // Close mobile menu if open
                     mobileMenu.classList.remove('active');
                     menuOverlay.classList.remove('active');
@@ -1203,17 +1509,14 @@
             });
         });
 
-
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuOverlay = document.getElementById('menuOverlay');
 
-
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             menuOverlay.classList.toggle('active');
-
 
             // Change icon based on menu state
             if (mobileMenu.classList.contains('active')) {
@@ -1223,7 +1526,6 @@
             }
         });
 
-
         menuOverlay.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             menuOverlay.classList.remove('active');
@@ -1231,6 +1533,5 @@
         });
     </script>
 </body>
-
 
 </html>
