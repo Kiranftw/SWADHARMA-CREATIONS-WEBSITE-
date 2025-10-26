@@ -1305,8 +1305,7 @@
     <section class="contact-section" id="contact">
         <h2 class="contact-title">Let's Create Together</h2>
         <p class="contact-subtitle">Ready to elevate your brand with compelling storytelling and strategic design?</p>
-        <a href="D:\website\SWADHARMA-CREATIONS-WEBSITE--main\SWADHARMA-CREATIONS-WEBSITE--main\templates\contactus.html"
-            class="contact-btn">Get in Touch</a>
+        <a href="{{ url_for('contactUS') }}" class="contact-btn">Get in Touch</a>
     </section>
 
     <!-- Footer -->
@@ -1505,6 +1504,7 @@
                     // Close mobile menu if open
                     mobileMenu.classList.remove('active');
                     menuOverlay.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
         });
@@ -1530,6 +1530,15 @@
             mobileMenu.classList.remove('active');
             menuOverlay.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on mobile menu links
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
         });
     </script>
 </body>
