@@ -1,0 +1,110 @@
+2025-10-26 15:17:51,156 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6000
+ * Running on http://172.31.130.187:6000
+2025-10-26 15:17:51,156 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-26 15:17:51,158 - INFO -  * Restarting with stat
+2025-10-26 15:17:51,428 - WARNING -  * Debugger is active!
+2025-10-26 15:17:51,429 - INFO -  * Debugger PIN: 604-068-408
+2025-10-26 15:18:02,470 - INFO -  * Detected change in '/home/kiranftw/SWADHARMA-CREATIONS-WEBSITE-/app.py', reloading
+2025-10-26 15:18:02,521 - INFO -  * Restarting with stat
+2025-10-26 15:18:02,782 - WARNING -  * Debugger is active!
+2025-10-26 15:18:02,782 - INFO -  * Debugger PIN: 604-068-408
+2025-10-26 15:18:05,798 - INFO -  * Detected change in '/home/kiranftw/SWADHARMA-CREATIONS-WEBSITE-/app.py', reloading
+2025-10-26 15:18:05,851 - INFO -  * Restarting with stat
+2025-10-26 15:18:06,095 - WARNING -  * Debugger is active!
+2025-10-26 15:18:06,095 - INFO -  * Debugger PIN: 604-068-408
+2025-10-26 15:18:19,159 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8082
+ * Running on http://172.31.130.187:8082
+2025-10-26 15:18:19,160 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-26 15:18:19,161 - INFO -  * Restarting with stat
+2025-10-26 15:18:19,442 - WARNING -  * Debugger is active!
+2025-10-26 15:18:19,442 - INFO -  * Debugger PIN: 604-068-408
+2025-10-26 15:18:20,344 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-10-26 15:18:20,366 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:20] "GET / HTTP/1.1" 200 -
+2025-10-26 15:18:20,643 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /favicon.ico | FORM: {}
+2025-10-26 15:18:20,644 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-26 15:18:22,179 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:22,191 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:22] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:34,502 - INFO - ➡️ REQUEST | METHOD: POST | PATH: /contactus | FORM: {'name': 'THIS ', 'email': 'IS@GMAIL.COM', 'subject': 'TEST', 'message': 'two'}
+2025-10-26 15:18:34,502 - INFO - 🔥 CONTACT FORM SUBMISSION | Name: THIS , Email: IS@GMAIL.COM, Subject: TEST
+2025-10-26 15:18:36,075 - INFO - DATA WRITTEN TO GOOGLE SHEETS
+2025-10-26 15:18:36,082 - INFO -  DATA SAVED TO SQLITE DB
+2025-10-26 15:18:39,284 - INFO - EMAIL SENT SUCCESSFULLY
+2025-10-26 15:18:39,285 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:39] "POST /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:46,951 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /aboutus | FORM: {}
+2025-10-26 15:18:46,959 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:46] "GET /aboutus HTTP/1.1" 200 -
+2025-10-26 15:18:47,003 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/HARI.jpg | FORM: {}
+2025-10-26 15:18:47,008 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/1000128098.jpg | FORM: {}
+2025-10-26 15:18:47,011 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/SAND.jpg | FORM: {}
+2025-10-26 15:18:47,018 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:47] "GET /static/photos/HARI.jpg HTTP/1.1" 200 -
+2025-10-26 15:18:47,018 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:47] "GET /static/photos/SAND.jpg HTTP/1.1" 200 -
+2025-10-26 15:18:47,021 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:47] "GET /static/photos/1000128098.jpg HTTP/1.1" 200 -
+2025-10-26 15:18:48,236 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-10-26 15:18:48,237 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:48] "GET / HTTP/1.1" 200 -
+2025-10-26 15:18:48,864 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:48,865 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:48] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:50,407 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:50,407 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:50] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:50,824 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /services | FORM: {}
+2025-10-26 15:18:50,831 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:50] "GET /services HTTP/1.1" 200 -
+2025-10-26 15:18:51,239 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /aboutus | FORM: {}
+2025-10-26 15:18:51,240 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:51] "GET /aboutus HTTP/1.1" 200 -
+2025-10-26 15:18:51,290 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/HARI.jpg | FORM: {}
+2025-10-26 15:18:51,291 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/1000128098.jpg | FORM: {}
+2025-10-26 15:18:51,293 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:51] "[36mGET /static/photos/1000128098.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:51,294 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/SAND.jpg | FORM: {}
+2025-10-26 15:18:51,295 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:51] "[36mGET /static/photos/HARI.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:51,297 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:51] "[36mGET /static/photos/SAND.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:52,009 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:52,010 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:52] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:52,447 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /aboutus | FORM: {}
+2025-10-26 15:18:52,448 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:52] "GET /aboutus HTTP/1.1" 200 -
+2025-10-26 15:18:52,497 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/HARI.jpg | FORM: {}
+2025-10-26 15:18:52,498 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:52] "[36mGET /static/photos/HARI.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:52,499 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/1000128098.jpg | FORM: {}
+2025-10-26 15:18:52,501 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/SAND.jpg | FORM: {}
+2025-10-26 15:18:52,503 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:52] "[36mGET /static/photos/SAND.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:52,503 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:52] "[36mGET /static/photos/1000128098.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:52,895 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:52,896 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:52] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:53,366 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-10-26 15:18:53,366 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:53] "GET / HTTP/1.1" 200 -
+2025-10-26 15:18:53,683 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-10-26 15:18:53,684 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:53] "GET / HTTP/1.1" 200 -
+2025-10-26 15:18:54,081 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /aboutus | FORM: {}
+2025-10-26 15:18:54,081 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "GET /aboutus HTTP/1.1" 200 -
+2025-10-26 15:18:54,141 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/HARI.jpg | FORM: {}
+2025-10-26 15:18:54,142 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/1000128098.jpg | FORM: {}
+2025-10-26 15:18:54,143 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "[36mGET /static/photos/HARI.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:54,146 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "[36mGET /static/photos/1000128098.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:54,147 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/SAND.jpg | FORM: {}
+2025-10-26 15:18:54,149 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "[36mGET /static/photos/SAND.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:54,798 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /aboutus | FORM: {}
+2025-10-26 15:18:54,799 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "GET /aboutus HTTP/1.1" 200 -
+2025-10-26 15:18:54,835 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/HARI.jpg | FORM: {}
+2025-10-26 15:18:54,836 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "[36mGET /static/photos/HARI.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:54,838 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/1000128098.jpg | FORM: {}
+2025-10-26 15:18:54,839 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "[36mGET /static/photos/1000128098.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:54,841 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/SAND.jpg | FORM: {}
+2025-10-26 15:18:54,843 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:54] "[36mGET /static/photos/SAND.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:55,153 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /services | FORM: {}
+2025-10-26 15:18:55,154 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:55] "GET /services HTTP/1.1" 200 -
+2025-10-26 15:18:56,243 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:56,244 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:56] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:18:56,957 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-10-26 15:18:56,958 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:56] "GET / HTTP/1.1" 200 -
+2025-10-26 15:18:57,254 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /aboutus | FORM: {}
+2025-10-26 15:18:57,255 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:57] "GET /aboutus HTTP/1.1" 200 -
+2025-10-26 15:18:57,299 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/HARI.jpg | FORM: {}
+2025-10-26 15:18:57,301 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:57] "[36mGET /static/photos/HARI.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:57,303 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/1000128098.jpg | FORM: {}
+2025-10-26 15:18:57,305 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:57] "[36mGET /static/photos/1000128098.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:57,306 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /static/photos/SAND.jpg | FORM: {}
+2025-10-26 15:18:57,308 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:57] "[36mGET /static/photos/SAND.jpg HTTP/1.1[0m" 304 -
+2025-10-26 15:18:57,780 - INFO - ➡️ REQUEST | METHOD: GET | PATH: /contactus | FORM: {}
+2025-10-26 15:18:57,782 - INFO - 127.0.0.1 - - [26/Oct/2025 15:18:57] "GET /contactus HTTP/1.1" 200 -
+2025-10-26 15:19:04,030 - INFO - ➡️ REQUEST | METHOD: GET | PATH: / | FORM: {}
+2025-10-26 15:19:04,031 - INFO - 127.0.0.1 - - [26/Oct/2025 15:19:04] "GET / HTTP/1.1" 200 -
